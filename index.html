@@ -149,18 +149,10 @@
     <!-- GIF de Mario -->
     <img class="mario" src="https://www.icegif.com/wp-content/uploads/2023/03/icegif-1490.gif" alt="Mario corriendo">
 
-    <script>
+        <script>
         const profileImage = document.getElementById('profileImage');
         const fullScreenContainer = document.getElementById('fullScreenContainer');
         const closeButton = document.querySelector('.close-button');
-        const mario = document.querySelector('.mario');
-
-        // Variables para el movimiento de Mario
-        let position = 0; // Posición inicial de Mario
-        let direction = 1; // 1: derecha, -1: izquierda
-        const speed = 2; // Velocidad de movimiento
-        const jumpHeight = 30; // Altura del salto
-        const jumpDuration = 300; // Duración del salto en milisegundos
 
         // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
@@ -181,6 +173,14 @@
                 profileImage.classList.remove('clicked'); // Quitar clase de clic
             }
         });
+
+        // Variables para el movimiento de Mario
+        const mario = document.querySelector('.mario');
+        let position = 0; // Posición inicial de Mario
+        let direction = 1; // 1 = derecha, -1 = izquierda
+        const speed = 2; // Velocidad de movimiento
+        const jumpHeight = 50; // Altura del salto
+        const jumpDuration = 500; // Duración del salto en milisegundos
 
         // Función para mover a Mario
         function moveMario() {
