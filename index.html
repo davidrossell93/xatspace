@@ -6,8 +6,8 @@
     <title>Mi Perfil de XatSpace</title>
     <style>
         body {
-            background: linear-gradient(135deg, #6b5b95, #feb236); /* Fondo degradado */
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8e44ad, #3498db); /* Fondo degradado más suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,30 +19,32 @@
         }
 
         .profile-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             padding: 20px;
             text-align: center;
             width: 300px; /* Ancho del contenedor */
             position: relative; /* Para posicionar el contenedor de la imagen ampliada */
+            overflow: hidden; /* Evitar desbordamientos */
         }
 
         .profile-container img {
             border-radius: 50%;
             width: 320px; /* Tamaño de la foto aumentado */
             height: 320px; /* Tamaño de la foto aumentado */
-            object-fit: contain; /* Cambiado a contain para mostrar más de la imagen */
+            object-fit: cover; /* Cambiado a cover para una mejor visualización */
             border: 2px solid #007bff; /* Borde color azul */
-            transition: transform 0.3s ease, border 0.3s ease; /* Transición suave */
+            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
             margin: 0 auto; /* Centrar la imagen */
             display: block; /* Hacer que la imagen sea un bloque para centrar con margin */
             position: relative; /* Añadido para ajustar la posición */
             left: -10px; /* Ajustar la posición a la izquierda */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra alrededor de la imagen */
         }
 
         .profile-container img:hover {
-            transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+            transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
         }
 
         .profile-container img.clicked {
@@ -66,13 +68,32 @@
         }
 
         .full-screen img {
-            max-width: 100%; /* Asegura que la imagen no exceda el ancho de la pantalla */
-            max-height: 100%; /* Asegura que la imagen no exceda la altura de la pantalla */
+            max-width: 90%; /* Asegura que la imagen no exceda el ancho de la pantalla */
+            max-height: 90%; /* Asegura que la imagen no exceda la altura de la pantalla */
             object-fit: contain; /* Mantiene la relación de aspecto y evita el recorte */
             border: 2px solid #007bff; /* Borde color azul */
             border-radius: 10px; /* Bordes redondeados */
             transition: transform 0.3s ease; /* Transición suave */
             pointer-events: none; /* Evitar interacciones en la imagen ampliada */
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff3b30; /* Color del botón de cerrar */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease; /* Transición para el hover */
+            z-index: 1001; /* Asegura que esté encima de otros elementos */
+        }
+
+        .close-button:hover {
+            background-color: #ff1f20; /* Color más oscuro al pasar el mouse */
         }
 
         h1 {
@@ -110,6 +131,7 @@
         
         <!-- Contenedor para la imagen ampliada -->
         <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
+            <button class="close-button" aria-label="Cerrar imagen ampliada">&times;</button>
             <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
         </div>
     </div>
@@ -117,6 +139,7 @@
     <script>
         const profileImage = document.getElementById('profileImage');
         const fullScreenContainer = document.getElementById('fullScreenContainer');
+        const closeButton = document.querySelector('.close-button');
 
         // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
@@ -124,10 +147,18 @@
             profileImage.classList.toggle('clicked'); // Agregar o quitar clase para el efecto de clic
         });
 
-        // Ocultar la imagen ampliada al hacer clic en ella
-        fullScreenContainer.addEventListener('click', function() {
+        // Ocultar la imagen ampliada al hacer clic en el botón de cerrar
+        closeButton.addEventListener('click', function() {
             fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
             profileImage.classList.remove('clicked'); // Quitar clase de clic
+        });
+
+        // Ocultar la imagen ampliada al hacer clic en ella
+        fullScreenContainer.addEventListener('click', function(event) {
+            if (event.target === fullScreenContainer) { // Solo si se hace clic en el fondo
+                fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
+                profileImage.classList.remove('clicked'); // Quitar clase de clic
+            }
         });
     </script>
 </body>
