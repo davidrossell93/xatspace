@@ -125,27 +125,31 @@
 
         /* Estilo para Mario */
         .mario {
-            position: fixed;
+            position: absolute;
             bottom: 10px; /* Margen desde el fondo */
-            left: -100px; /* Comienza fuera de la pantalla a la izquierda */
+            left: 0; /* Comienza desde el lado izquierdo */
             width: 100px; /* Tamaño de Mario */
-            animation: moveAndJump 1.5s linear infinite; /* Animación de movimiento y salto */
+            animation: moveAndJump 2s linear infinite; /* Animación de movimiento y salto */
         }
 
         /* Animación de movimiento y salto */
         @keyframes moveAndJump {
             0% {
-                left: -100px; /* Comienza fuera de la pantalla */
+                left: 0; /* Comienza desde la izquierda */
                 bottom: 10px; /* Altura inicial */
             }
-            50% {
+            25% {
                 left: 50%; /* Se mueve al centro */
                 bottom: 50px; /* Salto alto */
                 transform: translateX(-50%); /* Centrar horizontalmente */
             }
-            100% {
-                left: 100vw; /* Se mueve fuera de la pantalla a la derecha */
+            50% {
+                left: 100vw; /* Se mueve a la derecha de la pantalla */
                 bottom: 10px; /* Regresa a la altura inicial */
+            }
+            100% {
+                left: 0; /* Regresa a la posición inicial */
+                bottom: 10px; /* Altura inicial */
             }
         }
     </style>
