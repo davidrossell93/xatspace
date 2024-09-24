@@ -77,23 +77,39 @@
 
         h1 {
             font-size: 1.5em;
-            color: #333;
+            color: #333; /* Color del texto del nombre */
         }
 
         p {
-            color: #555;
+            color: #555; /* Color del texto del ID */
             margin-top: 10px;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 400px) {
+            .profile-container {
+                width: 90%; /* Ancho del contenedor en pantallas pequeñas */
+            }
+
+            .profile-container img {
+                width: 240px; /* Tamaño de imagen en pantallas pequeñas */
+                height: 240px; /* Tamaño de imagen en pantallas pequeñas */
+            }
+
+            h1 {
+                font-size: 1.2em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="profile-container">
-        <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto">
+    <div class="profile-container" role="region" aria-label="Perfil de usuario">
+        <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
         <h1>David Rossell</h1>
-        <p>ID: xat1548951976</p>
+        <p id="profileDesc">ID: xat1548951976</p>
         
         <!-- Contenedor para la imagen ampliada -->
-        <div id="fullScreenContainer" class="full-screen">
+        <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
             <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
         </div>
     </div>
