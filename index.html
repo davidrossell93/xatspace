@@ -24,15 +24,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             padding: 20px;
             text-align: center;
-            width: 300px; /* Ancho del contenedor */
+            width: 340px; /* Ancho del contenedor aumentado */
             position: relative; /* Para posicionar el contenedor de la imagen ampliada */
         }
 
         .profile-container img {
             border-radius: 50%;
-            width: 320px; /* Tamaño de la foto aumentado */
-            height: 320px; /* Tamaño de la foto aumentado */
-            object-fit: contain; /* Cambiado a contain para mostrar más de la imagen */
+            width: 300px; /* Tamaño de la foto */
+            height: 300px; /* Tamaño de la foto */
+            object-fit: cover; /* Cambiado a cover para evitar espacios */
             border: 2px solid #007bff; /* Borde color azul */
             transition: transform 0.3s ease, border 0.3s ease; /* Transición suave */
             margin: 0 auto; /* Centrar la imagen */
