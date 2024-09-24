@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil de XatSpace</title>
     <style>
-        /* Oculta el contenedor que muestra la foto y el ID de XatSpace */
-        .xat-profile { /* Cambia esto por la clase correcta que identifiques */
-            display: none !important; /* Ocultar con alta prioridad */
-        }
-
         body {
-            background: linear-gradient(to bottom right, #6a11cb, #2575fc); /* Degradado de fondo */
+            background-color: #f4f4f4;
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -19,21 +14,15 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            color: #fff; /* Color del texto */
         }
 
         .profile-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
             text-align: center;
-            width: 320px;
-            transition: transform 0.3s ease; /* Transición suave para el contenedor */
-        }
-
-        .profile-container:hover {
-            transform: scale(1.05); /* Efecto de zoom al pasar el mouse sobre el contenedor */
+            width: 300px;
         }
 
         .profile-container img {
@@ -41,46 +30,76 @@
             width: 300px; /* Tamaño de la foto */
             height: 300px; /* Tamaño de la foto */
             object-fit: cover;
-            border: 4px solid #007bff; /* Borde color azul */
-            transition: transform 0.3s ease; /* Transición suave para la imagen */
+            border: 2px solid #007bff; /* Borde color azul */
+            transition: transform 0.3s ease; /* Transición suave */
+            cursor: pointer; /* Cambiar cursor al pasar sobre la imagen */
         }
 
         .profile-container img:hover {
             transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
         }
 
+        /* Estilo para la imagen en tamaño completo */
+        .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000; /* Asegura que esté encima de otros elementos */
+            cursor: pointer; /* Cambiar cursor al pasar sobre la imagen */
+        }
+
+        .full-screen img {
+            max-width: 90%; /* Limitar el tamaño máximo de la imagen */
+            max-height: 90%; /* Limitar el tamaño máximo de la imagen */
+        }
+
         h1 {
-            font-size: 1.8em;
-            margin-top: 20px;
+            font-size: 1.5em;
             color: #333;
         }
 
         p {
             color: #555;
             margin-top: 10px;
-            font-size: 1.2em;
-        }
-
-        @media (max-width: 768px) {
-            .profile-container {
-                width: 90%; /* Ancho responsive */
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            p {
-                font-size: 1em;
-            }
         }
     </style>
 </head>
 <body>
     <div class="profile-container">
-        <img src="https://xatimg.com/image/nTn9ximwIuhc.jpg" alt="Mi Foto">
+        <img id="profileImage" src="https://xatimg.com/image/y3pFDk2Msv24.jpg" alt="Mi Foto">
         <h1>David Rossell</h1>
         <p>ID: xat1548951976</p>
     </div>
+
+    <!-- Contenedor para la imagen a pantalla completa -->
+    <div id="fullScreenContainer" class="full-screen" style="display: none;">
+        <img id="fullScreenImage" src="https://xatimg.com/image/y3pFDk2Msv24.jpg" alt="Mi Foto Completa">
+    </div>
+
+    <script>
+        const profileImage = document.getElementById('profileImage');
+        const fullScreenContainer = document.getElementById('fullScreenContainer');
+        const fullScreenImage = document.getElementById('fullScreenImage');
+
+        // Función para mostrar/ocultar la imagen en pantalla completa
+        profileImage.addEventListener('click', function() {
+            if (fullScreenContainer.style.display === 'none') {
+                fullScreenContainer.style.display = 'flex'; // Mostrar imagen a pantalla completa
+            } else {
+                fullScreenContainer.style.display = 'none'; // Ocultar imagen a pantalla completa
+            }
+        });
+
+        // Ocultar la imagen de pantalla completa al hacer clic en ella
+        fullScreenContainer.addEventListener('click', function() {
+            fullScreenContainer.style.display = 'none'; // Ocultar imagen a pantalla completa
+        });
+    </script>
 </body>
 </html>
