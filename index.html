@@ -127,19 +127,25 @@
             position: absolute;
             bottom: 0;
             width: 100px; /* Tamaño de Mario */
-            animation: walk 5s linear infinite; /* Movimiento a la derecha más lento */
-            animation-direction: alternate; /* Alterna la dirección del movimiento */
+            animation: walk 4s linear infinite; /* Ajusta la duración del movimiento */
         }
 
         @keyframes walk {
             0% {
                 transform: translateX(0);
+                transform: scaleX(1); /* Mirar hacia la derecha */
             }
             50% {
                 transform: translateX(80vw) translateY(-20px); /* Salto */
+                transform: scaleX(1); /* Mirar hacia la derecha */
+            }
+            51% {
+                transform: translateX(80vw) translateY(-20px); /* Salto */
+                transform: scaleX(-1); /* Mirar hacia la izquierda */
             }
             100% {
                 transform: translateX(0);
+                transform: scaleX(-1); /* Mirar hacia la izquierda */
             }
         }
     </style>
