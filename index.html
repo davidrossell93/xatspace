@@ -6,7 +6,7 @@
     <title>Mi Perfil de XatSpace</title>
     <style>
         body {
-            background: linear-gradient(135deg, #8e44ad, #3498db);
+            background: linear-gradient(135deg, #8e44ad, #3498db); /* Fondo degradado más suave */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
@@ -14,81 +14,113 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            color: #fff;
-            cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto;
-            overflow: hidden;
+            color: #fff; /* Color del texto */
+            cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; /* Cambia esta URL por la de tu imagen de cursor */
+            overflow: hidden; /* Para evitar desbordamientos */
         }
 
         .profile-container {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             padding: 20px;
             text-align: center;
-            width: 300px;
-            position: relative;
-            overflow: hidden;
+            width: 300px; /* Ancho del contenedor */
+            position: relative; /* Para posicionar el contenedor de la imagen ampliada */
+            overflow: hidden; /* Evitar desbordamientos */
         }
 
         .profile-container img {
             border-radius: 50%;
-            width: 320px;
-            height: 320px;
-            object-fit: contain;
-            border: 2px solid #007bff;
-            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-            margin: 0 auto;
-            display: block;
-            position: relative;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 320px; /* Tamaño de la foto aumentado */
+            height: 320px; /* Tamaño de la foto aumentado */
+            object-fit: contain; /* Mantener la relación de aspecto para mostrar toda la imagen */
+            border: 2px solid #007bff; /* Borde color azul */
+            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+            margin: 0 auto; /* Centrar la imagen */
+            display: block; /* Hacer que la imagen sea un bloque para centrar con margin */
+            position: relative; /* Añadido para ajustar la posición */
+            left: -10px; /* Ajustar la posición a la izquierda */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra alrededor de la imagen */
         }
 
+        .profile-container img:hover {
+            transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+        }
+
+        .profile-container img.clicked {
+            border: 2px solid #ffcc00; /* Borde amarillo al hacer clic */
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); /* Efecto de brillo al hacer clic */
+        }
+
+        /* Estilo para la imagen ampliada */
         .full-screen {
-            position: fixed;
+            position: fixed; /* Cambiado a fixed para ocupar toda la pantalla */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: none;
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+            display: none; /* Inicialmente oculto */
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-            cursor: pointer;
+            z-index: 1000; /* Asegura que esté encima de otros elementos */
+            cursor: pointer; /* Cambiar cursor al pasar sobre la imagen */
         }
 
         .full-screen img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            pointer-events: none;
+            max-width: 90%; /* Asegura que la imagen no exceda el ancho de la pantalla */
+            max-height: 90%; /* Asegura que la imagen no exceda la altura de la pantalla */
+            object-fit: contain; /* Mantiene la relación de aspecto y evita el recorte */
+            border: 2px solid #007bff; /* Borde color azul */
+            border-radius: 10px; /* Bordes redondeados */
+            transition: transform 0.3s ease; /* Transición suave */
+            pointer-events: none; /* Evitar interacciones en la imagen ampliada */
         }
 
         .close-button {
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: #ff3b30;
+            background-color: #ff3b30; /* Color del botón de cerrar */
             color: white;
             border: none;
             border-radius: 50%;
             padding: 10px 15px;
             cursor: pointer;
             font-size: 1.5em;
-            transition: background-color 0.3s ease;
-            z-index: 1001;
+            transition: background-color 0.3s ease; /* Transición para el hover */
+            z-index: 1001; /* Asegura que esté encima de otros elementos */
         }
 
-        /* Estilo para Mario */
-        .mario {
-            position: absolute;
-            bottom: 10px; /* Margen desde el fondo */
-            left: 0; /* Comienza desde el lado izquierdo */
-            width: 100px; /* Tamaño de Mario */
-            transition: transform 0.3s; /* Suaviza el cambio de dirección */
+        .close-button:hover {
+            background-color: #ff1f20; /* Color más oscuro al pasar el mouse */
+        }
+
+        h1 {
+            font-size: 1.5em;
+            color: #333; /* Color del texto del nombre */
+        }
+
+        p {
+            color: #555; /* Color del texto del ID */
+            margin-top: 10px;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 400px) {
+            .profile-container {
+                width: 90%; /* Ancho del contenedor en pantallas pequeñas */
+            }
+
+            .profile-container img {
+                width: 240px; /* Tamaño de imagen en pantallas pequeñas */
+                height: 240px; /* Tamaño de imagen en pantallas pequeñas */
+            }
+
+            h1 {
+                font-size: 1.2em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+            }
         }
     </style>
 </head>
@@ -98,13 +130,12 @@
         <h1>David Rossell</h1>
         <p id="profileDesc">ID: xat1548951976</p>
         
+        <!-- Contenedor para la imagen ampliada -->
         <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
             <button class="close-button" aria-label="Cerrar imagen ampliada">&times;</button>
             <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
         </div>
     </div>
-
-    <img class="mario" src="https://www.icegif.com/wp-content/uploads/2023/03/icegif-1490.gif" alt="Mario corriendo">
 
     <script>
         const profileImage = document.getElementById('profileImage');
@@ -130,52 +161,6 @@
                 profileImage.classList.remove('clicked'); // Quitar clase de clic
             }
         });
-
-        // Variables para el movimiento de Mario
-        const mario = document.querySelector('.mario');
-        let position = 0; // Posición inicial de Mario
-        let direction = 1; // 1 = derecha, -1 = izquierda
-        const speed = 2; // Velocidad de movimiento
-        const jumpHeight = 50; // Altura del salto
-        const jumpDuration = 500; // Duración del salto en milisegundos
-        let isJumping = false; // Controla si Mario está en el aire
-
-        // Función para mover a Mario
-        function moveMario() {
-            mario.style.left = position + 'px'; // Actualiza la posición de Mario
-
-            // Verificar límites
-            if (position >= window.innerWidth - 100 && !isJumping) {
-                direction = -1; // Cambiar dirección a izquierda
-                mario.style.transform = 'scaleX(-1)'; // Voltear a la izquierda
-                jump(); // Llamar a la función de salto
-            } else if (position <= 0 && !isJumping) {
-                direction = 1; // Cambiar dirección a derecha
-                mario.style.transform = 'scaleX(1)'; // Voltear a la derecha
-                jump(); // Llamar a la función de salto
-            }
-
-            position += speed * direction; // Actualizar posición en base a la dirección
-
-            requestAnimationFrame(moveMario); // Continuar el bucle de movimiento
-        }
-
-        // Función de salto
-        function jump() {
-            if (isJumping) return; // Evitar saltos múltiples
-
-            isJumping = true; // Indicar que Mario está saltando
-            mario.style.transform += ` translateY(-${jumpHeight}px)`; // Saltar hacia arriba
-
-            // Vuelve a la posición original después del salto
-            setTimeout(() => {
-                mario.style.transform = `translateY(0)`; // Regresar a la altura original
-                isJumping = false; // Indicar que Mario ya no está saltando
-            }, jumpDuration);
-        }
-
-        // Iniciar el movimiento de Mario al cargar
-        moveMario();
     </script>
 </body>
 </html>
