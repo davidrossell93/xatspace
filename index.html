@@ -3,21 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi XatSpace Frame</title>
+    <title>Mi Perfil de XatSpace</title>
     <style>
         body {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
+            background-color: #f4f4f4;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
+
+        .profile-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .profile-container img {
+            border-radius: 50%;
+            width: 150px; /* Tamaño de la foto */
+            height: 150px; /* Tamaño de la foto */
+            object-fit: cover;
+            border: 2px solid #007bff; /* Borde color azul */
+        }
+
         h1 {
-            color: #ffcc00;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Bienvenido a mi XatSpace</h1>
-    <p>Este es mi estilo personalizado para mi perfil de xat.com.</p>
+    <div class="profile-container">
+        <img src="https://xatimg.com/image/y3pFDk2Msv24.jpg" alt="Mi Foto">
+        <h1>Tu Nombre o ID</h1>
+        <p>ID: TU_ID_DE_XAT</p>
+    </div>
 </body>
 </html>
