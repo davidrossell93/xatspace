@@ -16,8 +16,7 @@
             margin: 0;
             color: #fff; /* Color del texto */
             cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; /* Cambia esta URL por la de tu imagen de cursor */
-            position: relative; /* Para posicionar a Mario en la parte inferior */
-            overflow: hidden; /* Evitar que Mario salga del viewport */
+            overflow: hidden; /* Para evitar desbordamientos por Mario */
         }
 
         .profile-container {
@@ -124,31 +123,26 @@
             }
         }
 
-        /* Estilos para Mario */
-        .mario-container {
-            position: absolute;
-            bottom: 20px; /* Espacio desde el fondo de la página */
-            left: 0; /* Comenzar desde la izquierda */
-            height: 100px; /* Altura de Mario */
-            overflow: hidden; /* Evitar que Mario salga del contenedor */
-        }
-
+        /* Estilo para Mario */
         .mario {
-            position: absolute;
-            width: 100px; /* Ajustar tamaño de Mario */
-            height: auto; /* Mantener proporción */
-            animation: run 2s linear infinite; /* Animación de correr */
+            position: fixed;
+            bottom: 10px; /* Margen desde el fondo */
+            left: 50%; /* Centrado horizontalmente */
+            transform: translateX(-50%); /* Ajustar el centrado */
+            width: 100px; /* Tamaño de Mario */
+            animation: jump 0.5s infinite; /* Animación de salto */
         }
 
-        @keyframes run {
-            0% {
-                left: -100px; /* Fuera de la pantalla a la izquierda */
+        /* Animación de salto */
+        @keyframes jump {
+            0%, 20% {
+                bottom: 10px;
             }
             50% {
-                transform: translateY(-20px); /* Saltar */
+                bottom: 50px; /* Altura del salto */
             }
             100% {
-                left: 100%; /* Fuera de la pantalla a la derecha */
+                bottom: 10px;
             }
         }
     </style>
@@ -166,11 +160,10 @@
         </div>
     </div>
 
-    <!-- Contenedor para Mario -->
-    <div class="mario-container">
-        <img class="mario" src="https://www.icegif.com/wp-content/uploads/2023/03/icegif-1490.gif" alt="Mario corriendo">
-    </div>
-        <script>
+    <!-- GIF de Mario -->
+    <img class="mario" src="https://www.icegif.com/wp-content/uploads/2023/03/icegif-1490.gif" alt="Mario corriendo">
+
+    <script>
         const profileImage = document.getElementById('profileImage');
         const fullScreenContainer = document.getElementById('fullScreenContainer');
         const closeButton = document.querySelector('.close-button');
