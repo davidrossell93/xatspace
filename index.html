@@ -127,22 +127,25 @@
         .mario {
             position: fixed;
             bottom: 10px; /* Margen desde el fondo */
-            left: 50%; /* Centrado horizontalmente */
-            transform: translateX(-50%); /* Ajustar el centrado */
+            left: -100px; /* Comienza fuera de la pantalla a la izquierda */
             width: 100px; /* Tamaño de Mario */
-            animation: jump 0.5s infinite; /* Animación de salto */
+            animation: moveAndJump 1.5s linear infinite; /* Animación de movimiento y salto */
         }
 
-        /* Animación de salto */
-        @keyframes jump {
-            0%, 20% {
-                bottom: 10px;
+        /* Animación de movimiento y salto */
+        @keyframes moveAndJump {
+            0% {
+                left: -100px; /* Comienza fuera de la pantalla */
+                bottom: 10px; /* Altura inicial */
             }
             50% {
-                bottom: 50px; /* Altura del salto */
+                left: 50%; /* Se mueve al centro */
+                bottom: 50px; /* Salto alto */
+                transform: translateX(-50%); /* Centrar horizontalmente */
             }
             100% {
-                bottom: 10px;
+                left: 100vw; /* Se mueve fuera de la pantalla a la derecha */
+                bottom: 10px; /* Regresa a la altura inicial */
             }
         }
     </style>
