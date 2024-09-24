@@ -59,15 +59,15 @@
             justify-content: center;
             z-index: 1000; /* Asegura que esté encima de otros elementos */
             cursor: pointer; /* Cambiar cursor al pasar sobre la imagen */
-            border-radius: 10px; /* Bordes redondeados */
         }
 
         .full-screen img {
-            max-width: 100%; /* Limitar el tamaño máximo de la imagen */
-            max-height: 100%; /* Limitar el tamaño máximo de la imagen */
+            max-width: 90%; /* Limitar el tamaño máximo de la imagen */
+            max-height: 90%; /* Limitar el tamaño máximo de la imagen */
             border: 2px solid #007bff; /* Borde color azul */
             border-radius: 10px; /* Bordes redondeados */
             transition: transform 0.3s ease; /* Transición suave */
+            object-fit: contain; /* Mantener relación de aspecto */
         }
 
         h1 {
