@@ -39,7 +39,7 @@
             transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
         }
 
-        /* Estilo para la imagen en tamaño completo */
+        /* Estilo para la imagen ampliada */
         .full-screen {
             position: fixed;
             top: 0;
@@ -47,7 +47,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
-            display: flex;
+            display: none; /* Inicialmente oculto */
             align-items: center;
             justify-content: center;
             z-index: 1000; /* Asegura que esté encima de otros elementos */
@@ -57,6 +57,8 @@
         .full-screen img {
             max-width: 90%; /* Limitar el tamaño máximo de la imagen */
             max-height: 90%; /* Limitar el tamaño máximo de la imagen */
+            border: 2px solid #007bff; /* Borde color azul */
+            border-radius: 10px; /* Bordes redondeados */
         }
 
         h1 {
@@ -77,8 +79,8 @@
         <p>ID: xat1548951976</p>
     </div>
 
-    <!-- Contenedor para la imagen a pantalla completa -->
-    <div id="fullScreenContainer" class="full-screen" style="display: none;">
+    <!-- Contenedor para la imagen ampliada -->
+    <div id="fullScreenContainer" class="full-screen">
         <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
     </div>
 
@@ -87,18 +89,14 @@
         const fullScreenContainer = document.getElementById('fullScreenContainer');
         const fullScreenImage = document.getElementById('fullScreenImage');
 
-        // Función para mostrar/ocultar la imagen en pantalla completa
+        // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
-            if (fullScreenContainer.style.display === 'none') {
-                fullScreenContainer.style.display = 'flex'; // Mostrar imagen a pantalla completa
-            } else {
-                fullScreenContainer.style.display = 'none'; // Ocultar imagen a pantalla completa
-            }
+            fullScreenContainer.style.display = 'flex'; // Mostrar imagen ampliada
         });
 
-        // Ocultar la imagen de pantalla completa al hacer clic en ella
+        // Ocultar la imagen ampliada al hacer clic en ella
         fullScreenContainer.addEventListener('click', function() {
-            fullScreenContainer.style.display = 'none'; // Ocultar imagen a pantalla completa
+            fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
         });
     </script>
 </body>
