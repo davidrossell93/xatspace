@@ -16,6 +16,7 @@
             margin: 0;
             color: #fff; /* Color del texto */
             cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; /* Cambia esta URL por la de tu imagen de cursor */
+            position: relative; /* Para poder mover a Mario de manera correcta */
         }
 
         .profile-container {
@@ -125,7 +126,8 @@
         /* Animación para Mario */
         .mario {
             position: absolute;
-            bottom: 0;
+            bottom: 50px; /* Ajusta la altura de Mario */
+            left: 0; /* Comienza en el lado izquierdo */
             width: 100px; /* Tamaño de Mario */
             animation: walk 4s linear infinite; /* Ajusta la duración del movimiento */
         }
@@ -135,17 +137,29 @@
                 transform: translateX(0);
                 transform: scaleX(1); /* Mirar hacia la derecha */
             }
-            50% {
+            25% {
+                transform: translateX(80vw); /* Se mueve a la derecha */
+                transform: scaleX(1); /* Mirar hacia la derecha */
+            }
+            30% {
                 transform: translateX(80vw) translateY(-20px); /* Salto */
                 transform: scaleX(1); /* Mirar hacia la derecha */
             }
-            51% {
-                transform: translateX(80vw) translateY(-20px); /* Salto */
+            50% {
+                transform: translateX(0); /* Regresa al inicio */
+                transform: scaleX(-1); /* Mirar hacia la izquierda */
+            }
+            75% {
+                transform: translateX(-80vw); /* Se mueve a la izquierda */
+                transform: scaleX(-1); /* Mirar hacia la izquierda */
+            }
+            80% {
+                transform: translateX(-80vw) translateY(-20px); /* Salto hacia la izquierda */
                 transform: scaleX(-1); /* Mirar hacia la izquierda */
             }
             100% {
-                transform: translateX(0);
-                transform: scaleX(-1); /* Mirar hacia la izquierda */
+                transform: translateX(0); /* Regresa al inicio */
+                transform: scaleX(1); /* Mirar hacia la derecha */
             }
         }
     </style>
