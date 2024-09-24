@@ -16,7 +16,6 @@
             margin: 0;
             color: #fff; /* Color del texto */
             cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; /* Cambia esta URL por la de tu imagen de cursor */
-            position: relative; /* Para poder mover a Mario de manera correcta */
         }
 
         .profile-container {
@@ -48,12 +47,6 @@
             transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
         }
 
-        .profile-container img.clicked {
-            border: 2px solid #ffcc00; /* Borde amarillo al hacer clic */
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); /* Efecto de brillo al hacer clic */
-        }
-
-        /* Estilo para la imagen ampliada */
         .full-screen {
             position: fixed; /* Cambiado a fixed para ocupar toda la pantalla */
             top: 0;
@@ -97,14 +90,13 @@
             background-color: #ff1f20; /* Color más oscuro al pasar el mouse */
         }
 
-        h1 {
-            font-size: 1.5em;
-            color: #333; /* Color del texto del nombre */
-        }
-
-        p {
-            color: #555; /* Color del texto del ID */
-            margin-top: 10px;
+        /* Estilos de Mario */
+        .mario {
+            position: absolute;
+            bottom: 20px; /* Colocar a Mario en la parte inferior */
+            left: 0; /* Comenzar desde la izquierda */
+            width: 100px; /* Ajustar el tamaño de Mario */
+            transition: transform 0.5s; /* Transición suave para el movimiento */
         }
 
         /* Estilos responsivos */
@@ -116,50 +108,6 @@
             .profile-container img {
                 width: 240px; /* Tamaño de imagen en pantallas pequeñas */
                 height: 240px; /* Tamaño de imagen en pantallas pequeñas */
-            }
-
-            h1 {
-                font-size: 1.2em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-            }
-        }
-
-        /* Animación para Mario */
-        .mario {
-            position: absolute;
-            bottom: 50px; /* Ajusta la altura de Mario */
-            left: 0; /* Comienza en el lado izquierdo */
-            width: 100px; /* Tamaño de Mario */
-            animation: walk 4s linear infinite; /* Ajusta la duración del movimiento */
-        }
-
-        @keyframes walk {
-            0% {
-                transform: translateX(0);
-                transform: scaleX(1); /* Mirar hacia la derecha */
-            }
-            25% {
-                transform: translateX(80vw); /* Se mueve a la derecha */
-                transform: scaleX(1); /* Mirar hacia la derecha */
-            }
-            30% {
-                transform: translateX(80vw) translateY(-20px); /* Salto */
-                transform: scaleX(1); /* Mirar hacia la derecha */
-            }
-            50% {
-                transform: translateX(0); /* Regresa al inicio */
-                transform: scaleX(-1); /* Mirar hacia la izquierda */
-            }
-            75% {
-                transform: translateX(-80vw); /* Se mueve a la izquierda */
-                transform: scaleX(-1); /* Mirar hacia la izquierda */
-            }
-            80% {
-                transform: translateX(-80vw) translateY(-20px); /* Salto hacia la izquierda */
-                transform: scaleX(-1); /* Mirar hacia la izquierda */
-            }
-            100% {
-                transform: translateX(0); /* Regresa al inicio */
-                transform: scaleX(1); /* Mirar hacia la derecha */
             }
         }
     </style>
@@ -178,12 +126,13 @@
     </div>
 
     <!-- GIF de Mario -->
-    <img class="mario" src="https://www.icegif.com/wp-content/uploads/2023/03/icegif-1490.gif" alt="Mario corriendo">
+    <img class="mario" id="mario" src="https://www.icegif.com/wp-content/uploads/2023/03/icegif-1490.gif" alt="Mario corriendo">
 
     <script>
         const profileImage = document.getElementById('profileImage');
         const fullScreenContainer = document.getElementById('fullScreenContainer');
         const closeButton = document.querySelector('.close-button');
+        const mario = document.getElementById('mario');
 
         // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
@@ -204,6 +153,37 @@
                 profileImage.classList.remove('clicked'); // Quitar clase de clic
             }
         });
+
+        // Movimiento de Mario
+        function moveMario() {
+            let position = 0; // Posición inicial
+            let direction = 1; // 1 para derecha, -1 para izquierda
+            const step = 2; // Paso de movimiento
+            const jumpHeight = 60; // Altura del salto
+
+            const interval = setInterval(() => {
+                // Mover a Mario
+                position += step * direction;
+                mario.style.transform = `translateX(${position}px)`;
+
+                // Verificar límites
+                if (position >= window.innerWidth - 100 || position <= 0) {
+                    direction *= -1; // Cambiar dirección
+                    mario.style.transform += ` translateY(-${jumpHeight}px)`; // Saltar
+                    setTimeout(() => {
+                        mario.style.transform = `translateX(${position}px)`; // Regresar a la posición original
+                    }, 300); // Regresar a la posición después de 300ms
+                }
+
+                // Detener si está fuera de la pantalla
+                if (position >= window.innerWidth) {
+                    clearInterval(interval);
+                }
+            }, 50); // Intervalo de actualización
+        }
+
+        // Iniciar movimiento
+        moveMario();
     </script>
 </body>
 </html>
