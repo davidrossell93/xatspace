@@ -24,6 +24,7 @@
             padding: 20px;
             text-align: center;
             width: 300px;
+            position: relative; /* Para posicionar el contenedor de la imagen ampliada */
         }
 
         .profile-container img {
@@ -42,7 +43,7 @@
 
         /* Estilo para la imagen ampliada */
         .full-screen {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -53,6 +54,7 @@
             justify-content: center;
             z-index: 1000; /* Asegura que esté encima de otros elementos */
             cursor: pointer; /* Cambiar cursor al pasar sobre la imagen */
+            border-radius: 10px; /* Bordes redondeados */
         }
 
         .full-screen img {
@@ -60,6 +62,7 @@
             max-height: 90%; /* Limitar el tamaño máximo de la imagen */
             border: 2px solid #007bff; /* Borde color azul */
             border-radius: 10px; /* Bordes redondeados */
+            transition: transform 0.3s ease; /* Transición suave */
         }
 
         h1 {
@@ -78,21 +81,21 @@
         <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto">
         <h1>David Rossell</h1>
         <p>ID: xat1548951976</p>
-    </div>
-
-    <!-- Contenedor para la imagen ampliada -->
-    <div id="fullScreenContainer" class="full-screen">
-        <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
+        
+        <!-- Contenedor para la imagen ampliada -->
+        <div id="fullScreenContainer" class="full-screen">
+            <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
+        </div>
     </div>
 
     <script>
         const profileImage = document.getElementById('profileImage');
         const fullScreenContainer = document.getElementById('fullScreenContainer');
-        const fullScreenImage = document.getElementById('fullScreenImage');
 
         // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
             fullScreenContainer.style.display = 'flex'; // Mostrar imagen ampliada
+            fullScreenContainer.style.transform = 'scale(1.1)'; // Efecto de zoom al mostrar
         });
 
         // Ocultar la imagen ampliada al hacer clic en ella
