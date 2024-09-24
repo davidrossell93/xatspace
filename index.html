@@ -164,73 +164,71 @@
     <!-- GIF de Mario -->
     <img class="mario" src="https://www.icegif.com/wp-content/uploads/2023/03/icegif-1490.gif" alt="Mario corriendo">
         <script>
-        const profileImage = document.getElementById('profileImage');
-        const fullScreenContainer = document.getElementById('fullScreenContainer');
-        const closeButton = document.querySelector('.close-button');
-        const mario = document.querySelector('.mario');
+    const profileImage = document.getElementById('profileImage');
+    const fullScreenContainer = document.getElementById('fullScreenContainer');
+    const closeButton = document.querySelector('.close-button');
+    const mario = document.querySelector('.mario');
 
-        // Función para mostrar la imagen ampliada
-        profileImage.addEventListener('click', function() {
-            fullScreenContainer.style.display = 'flex'; // Mostrar imagen ampliada
-            profileImage.classList.toggle('clicked'); // Agregar o quitar clase para el efecto de clic
-        });
+    // Función para mostrar la imagen ampliada
+    profileImage.addEventListener('click', function() {
+        fullScreenContainer.style.display = 'flex'; // Mostrar imagen ampliada
+        profileImage.classList.toggle('clicked'); // Agregar o quitar clase para el efecto de clic
+    });
 
-        // Ocultar la imagen ampliada al hacer clic en el botón de cerrar
-        closeButton.addEventListener('click', function() {
+    // Ocultar la imagen ampliada al hacer clic en el botón de cerrar
+    closeButton.addEventListener('click', function() {
+        fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
+        profileImage.classList.remove('clicked'); // Quitar clase de clic
+    });
+
+    // Ocultar la imagen ampliada al hacer clic en ella
+    fullScreenContainer.addEventListener('click', function(event) {
+        if (event.target === fullScreenContainer) { // Solo si se hace clic en el fondo
             fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
             profileImage.classList.remove('clicked'); // Quitar clase de clic
-        });
-
-        // Ocultar la imagen ampliada al hacer clic en ella
-        fullScreenContainer.addEventListener('click', function(event) {
-            if (event.target === fullScreenContainer) { // Solo si se hace clic en el fondo
-                fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
-                profileImage.classList.remove('clicked'); // Quitar clase de clic
-            }
-        });
-
-        // Movimiento de Mario
-        let position = 0; // Posición inicial
-        const jumpHeight = 50; // Altura del salto
-        let direction = 1; // 1 para derecha, -1 para izquierda
-
-        function moveMario() {
-            const interval = setInterval(() => {
-                position += direction * 2; // Cambia la velocidad aquí
-
-                mario.style.left = position + 'px';
-
-                // Verificar límites
-                if (position >= window.innerWidth - 100) {
-                    direction = -1; // Cambiar dirección a izquierda
-                    mario.style.transform = 'scaleX(-1)'; // Voltear a Mario
-                    mario.style.transform += ` translateY(-${jumpHeight}px)`; // Salto hacia arriba
-                }
-
-                // Cambiar dirección al llegar a la izquierda
-                if (position <= 0) {
-                    direction = 1; // Cambiar dirección a derecha
-                    mario.style.transform = 'scaleX(1)'; // Voltear a Mario de nuevo
-                    mario.style.transform += ` translateY(-${jumpHeight}px)`; // Salto hacia arriba
-                }
-
-                // Restablecer la posición vertical después del salto
-                if (position % 200 === 0) {
-                    mario.style.transform = 'scaleX(1)'; // Asegurarse que está orientado correctamente
-                    setTimeout(() => {
-                        mario.style.transform += ` translateY(${jumpHeight}px)`; // Regresar a la altura inicial
-                    }, 100); // Esperar antes de regresar a la altura inicial
-                }
-
-                // Detener la animación si se sale del límite izquierdo
-                if (position < 0) {
-                    clearInterval(interval); // Detener el intervalo
-                }
-            }, 30); // Ajusta la velocidad de movimiento
         }
+    });
 
-        // Iniciar movimiento al cargar la página
-        moveMario();
-    </script>
+    // Movimiento de Mario
+    let position = 0; // Posición inicial
+    const jumpHeight = 50; // Altura del salto
+    let direction = 1; // 1 para derecha, -1 para izquierda
+    const speed = 2; // Velocidad de movimiento
+    const intervalTime = 20; // Tiempo entre cada movimiento
+
+    function moveMario() {
+        const interval = setInterval(() => {
+            position += direction * speed; // Cambia la velocidad aquí
+
+            // Actualiza la posición de Mario
+            mario.style.left = position + 'px';
+
+            // Verificar límites
+            if (position >= window.innerWidth - 100) {
+                direction = -1; // Cambiar dirección a izquierda
+                mario.style.transform = 'scaleX(-1)'; // Voltear a Mario
+                mario.style.transform += ` translateY(-${jumpHeight}px)`; // Salto hacia arriba
+            }
+
+            // Cambiar dirección al llegar a la izquierda
+            if (position <= 0) {
+                direction = 1; // Cambiar dirección a derecha
+                mario.style.transform = 'scaleX(1)'; // Voltear a Mario de nuevo
+                mario.style.transform += ` translateY(-${jumpHeight}px)`; // Salto hacia arriba
+            }
+
+            // Restablecer la posición vertical después del salto
+            if (position % 200 === 0) {
+                setTimeout(() => {
+                    mario.style.transform = (direction === 1) ? 'scaleX(1)' : 'scaleX(-1)'; // Asegurarse que está orientado correctamente
+                    mario.style.transform += ` translateY(0px)`; // Regresar a la altura inicial
+                }, 200); // Esperar antes de regresar a la altura inicial
+            }
+        }, intervalTime); // Ajusta la velocidad de movimiento
+    }
+
+    // Iniciar movimiento al cargar la página
+    moveMario();
+</script>
 </body>
 </html>
