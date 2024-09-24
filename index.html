@@ -33,12 +33,17 @@
             height: 300px; /* Tamaño de la foto */
             object-fit: cover;
             border: 2px solid #007bff; /* Borde color azul */
-            transition: transform 0.3s ease; /* Transición suave */
+            transition: transform 0.3s ease, border 0.3s ease; /* Transición suave */
             cursor: pointer; /* Cambiar cursor al pasar sobre la imagen */
         }
 
         .profile-container img:hover {
             transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+        }
+
+        .profile-container img.clicked {
+            border: 2px solid #ffcc00; /* Borde amarillo al hacer clic */
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); /* Efecto de brillo al hacer clic */
         }
 
         /* Estilo para la imagen ampliada */
@@ -95,12 +100,13 @@
         // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
             fullScreenContainer.style.display = 'flex'; // Mostrar imagen ampliada
-            fullScreenContainer.style.transform = 'scale(1.1)'; // Efecto de zoom al mostrar
+            profileImage.classList.toggle('clicked'); // Agregar o quitar clase para el efecto de clic
         });
 
         // Ocultar la imagen ampliada al hacer clic en ella
         fullScreenContainer.addEventListener('click', function() {
             fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
+            profileImage.classList.remove('clicked'); // Quitar clase de clic
         });
     </script>
 </body>
