@@ -27,10 +27,15 @@
 
         .profile-container img {
             border-radius: 50%;
-            width: 250px; /* Tamaño de la foto */
-            height: 250px; /* Tamaño de la foto */
+            width: 350px; /* Tamaño de la foto */
+            height: 350px; /* Tamaño de la foto */
             object-fit: cover;
             border: 2px solid #007bff; /* Borde color azul */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+
+        .profile-container img:hover {
+            transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
         }
 
         h1 {
