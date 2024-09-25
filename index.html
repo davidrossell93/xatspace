@@ -19,6 +19,13 @@
             overflow: hidden; /* Para evitar desbordamientos */
         }
 
+        .main-container {
+            display: flex; /* Para alinear la foto e info adicional en línea */
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Espacio entre la foto y la sección adicional */
+        }
+
         .profile-container {
             background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
             border-radius: 15px;
@@ -107,8 +114,42 @@
             margin-top: 10px;
         }
 
+        /* Sección lateral de detalles adicionales */
+        .extra-info {
+            background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px; /* Espacio entre elementos */
+            width: 180px; /* Ancho del contenedor adicional */
+        }
+
+        .extra-info div {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espacio entre el icono y el texto */
+        }
+
+        .extra-info img {
+            width: 25px; /* Tamaño del icono */
+            height: 25px; /* Tamaño del icono */
+        }
+
+        .extra-info span {
+            font-size: 1.2em;
+            color: #333;
+        }
+
         /* Estilos responsivos */
-        @media (max-width: 400px) {
+        @media (max-width: 600px) {
+            .main-container {
+                flex-direction: column;
+            }
+
             .profile-container {
                 width: 90%; /* Ancho del contenedor en pantallas pequeñas */
             }
@@ -121,30 +162,57 @@
             h1 {
                 font-size: 1.2em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
             }
+
+            .extra-info {
+                width: 100%; /* Ajustar a pantallas pequeñas */
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .extra-info div {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="profile-container" role="region" aria-label="Perfil de usuario">
-        <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
-        <h1>David Rossell</h1>
-        <p id="profileDesc">ID: xat1548951976</p>
-        
-        <!-- Contenedor para la imagen ampliada -->
-        <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
-            <button class="close-button" aria-label="Cerrar imagen ampliada">&times;</button>
-            <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
+    <div class="main-container">
+        <!-- Contenedor principal de la foto y el nombre -->
+        <div class="profile-container" role="region" aria-label="Perfil de usuario">
+            <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
+            <h1>David Rossell</h1>
+            <p id="profileDesc">ID: xat1548951976</p>
+
+            <!-- Contenedor para la imagen ampliada -->
+            <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
+                <button class="close-button" aria-label="Cerrar imagen ampliada">&times;</button>
+                <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
+            </div>
+        </div>
+
+        <!-- Nueva sección de detalles adicionales a la derecha -->
+        <div class="extra-info">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Spain_flag_icon.svg/1024px-Spain_flag_icon.svg.png" alt="Bandera de España">
+                <span>Madrid, España</span>
+            </div>
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Pisces.svg/1200px-Pisces.svg.png" alt="Piscis">
+                <span>Piscis</span>
+            </div>
         </div>
     </div>
 
-    <script>
+        <script>
         const profileImage = document.getElementById('profileImage');
         const fullScreenContainer = document.getElementById('fullScreenContainer');
+        const fullScreenImage = document.getElementById('fullScreenImage');
         const closeButton = document.querySelector('.close-button');
 
         // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
             fullScreenContainer.style.display = 'flex'; // Mostrar imagen ampliada
+            fullScreenImage.src = profileImage.src; // Usar la misma imagen en el modo ampliado
             profileImage.classList.toggle('clicked'); // Agregar o quitar clase para el efecto de clic
         });
 
