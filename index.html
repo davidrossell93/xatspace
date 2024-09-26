@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Contenedor del contador en la esquina superior derecha -->
+<div class="counter">
+    <a href='http://www.freevisitorcounters.com'>more information</a> 
+    <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=e740a3aa669db80a8933bac4b97c29f56aa33a14'></script>
+    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1240187/t/3"></script>
+</div>
     <title>Perfil David</title>
     <style>
         body {
@@ -19,6 +25,21 @@
             overflow: hidden;
             position: relative;
         }
+
+        /* Estilo para posicionar el contador */
+.counter {
+    position: fixed; /* Fijar la posición en la pantalla */
+    top: 10px; /* Espaciado desde la parte superior */
+    right: 10px; /* Espaciado desde la derecha */
+    z-index: 100; /* Asegurarse de que esté encima de otros elementos */
+}
+
+/* Estilo opcional para el iframe */
+.counter iframe {
+    border: none; /* Sin bordes */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle estilo */
+}
         
         /* Animación de partículas en el fondo */
         #particles-js {
