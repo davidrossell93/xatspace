@@ -188,7 +188,87 @@
     </style>
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil con Audio Oculto</title>
+    <style>
+        body {
+            height: 200vh; /* Aumentar la altura para permitir el desplazamiento */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Ocultar el reproductor Mixcloud */
+        #mixcloudPlayer {
+            visibility: hidden; /* Ocultar el reproductor inicialmente */
+            height: 0;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
 
+    <h1>Bienvenido a mi perfil</h1>
+    <p>Desplázate hacia abajo o haz clic en cualquier parte para activar la música.</p>
+
+    <!-- Reproductor Mixcloud oculto -->
+    <div id="mixcloudPlayer">
+        <iframe width="100%" height="60" 
+                src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fhsgalletti2022%2Feminem-mockingbird%2F" 
+                frameborder="0" allow="autoplay">
+        </iframe>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var mixcloudPlayer = document.getElementById('mixcloudPlayer');
+
+            // Función para intentar reproducir el audio
+            var tryAutoPlay = function() {
+                mixcloudPlayer.style.visibility = 'visible'; // Hacer visible el reproductor
+                mixcloudPlayer.style.height = '60px'; // Ajustar altura del reproductor
+                const iframe = mixcloudPlayer.querySelector('iframe');
+                iframe.contentWindow.postMessage('play', '*'); // Intentar iniciar la reproducción
+
+                console.log('Reproducción automática intentada');
+                removeInteractionEvents(); // Quitar eventos si la reproducción es exitosa
+            };
+
+            // Agregar todos los eventos de interacción posibles
+            var addInteractionEvents = function() {
+                document.addEventListener('click', tryAutoPlay, true);
+                document.addEventListener('touchstart', tryAutoPlay, true);
+                document.addEventListener('scroll', tryAutoPlay, true);
+                document.addEventListener('mousemove', tryAutoPlay, true);
+                document.addEventListener('keydown', tryAutoPlay, true);
+                document.addEventListener('wheel', tryAutoPlay, true);
+            };
+
+            // Quitar todos los eventos de interacción cuando el audio se reproduce
+            var removeInteractionEvents = function() {
+                document.removeEventListener('click', tryAutoPlay, true);
+                document.removeEventListener('touchstart', tryAutoPlay, true);
+                document.removeEventListener('scroll', tryAutoPlay, true);
+                document.removeEventListener('mousemove', tryAutoPlay, true);
+                document.removeEventListener('keydown', tryAutoPlay, true);
+                document.removeEventListener('wheel', tryAutoPlay, true);
+            };
+
+            // Intento inicial al cargar la página
+            tryAutoPlay(); // Intentar reproducir al cargar la página
+            addInteractionEvents(); // Agregar eventos de interacción
+        });
+    </script>
+
+</body>
+</html>
     <!-- Animación de partículas en el fondo -->
     <div id="particles-js"></div>
 
