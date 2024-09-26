@@ -6,7 +6,7 @@
     <title>Perfil David</title>
     <style>
         body {
-            background: linear-gradient(135deg, #8e44ad, #3498db); /* Fondo degradado más suave */
+            background: linear-gradient(135deg, #8e44ad, #3498db); 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
@@ -14,117 +14,183 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            color: #fff; /* Color del texto */
-            cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; /* Cambia esta URL por la de tu imagen de cursor */
-            overflow: hidden; /* Para evitar desbordamientos */
+            color: #fff;
+            cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animación de partículas en el fondo */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
 
         .profile-container {
-            background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+            background-color: rgba(255, 255, 255, 0.95); 
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             padding: 20px;
             text-align: center;
-            width: 300px; /* Ancho del contenedor */
-            position: relative; /* Para posicionar el contenedor de la imagen ampliada */
-            overflow: hidden; /* Evitar desbordamientos */
+            width: 320px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .profile-container img {
             border-radius: 50%;
-            width: 320px; /* Tamaño de la foto aumentado */
-            height: 320px; /* Tamaño de la foto aumentado */
-            object-fit: contain; /* Mantener la relación de aspecto para mostrar toda la imagen */
-            border: 2px solid #007bff; /* Borde color azul */
-            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
-            margin: 0 auto; /* Centrar la imagen */
-            display: block; /* Hacer que la imagen sea un bloque para centrar con margin */
-            position: relative; /* Añadido para ajustar la posición */
-            left: -10px; /* Ajustar la posición a la izquierda */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra alrededor de la imagen */
+            width: 320px;
+            height: 320px;
+            object-fit: contain;
+            border: 2px solid #007bff;
+            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            left: -10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .profile-container img:hover {
-            transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+            transform: scale(1.05); 
         }
 
         .profile-container img.clicked {
-            border: 2px solid #ffcc00; /* Borde amarillo al hacer clic */
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); /* Efecto de brillo al hacer clic */
+            border: 2px solid #ffcc00; 
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
         }
 
-        /* Estilo para la imagen ampliada */
         .full-screen {
-            position: fixed; /* Cambiado a fixed para ocupar toda la pantalla */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
-            display: none; /* Inicialmente oculto */
+            background-color: rgba(0, 0, 0, 0.8); 
+            display: none;
             align-items: center;
             justify-content: center;
-            z-index: 1000; /* Asegura que esté encima de otros elementos */
-            cursor: pointer; /* Cambiar cursor al pasar sobre la imagen */
+            z-index: 1000;
+            cursor: pointer;
         }
 
         .full-screen img {
-            max-width: 90%; /* Asegura que la imagen no exceda el ancho de la pantalla */
-            max-height: 90%; /* Asegura que la imagen no exceda la altura de la pantalla */
-            object-fit: contain; /* Mantiene la relación de aspecto y evita el recorte */
-            border: 2px solid #007bff; /* Borde color azul */
-            border-radius: 10px; /* Bordes redondeados */
-            transition: transform 0.3s ease; /* Transición suave */
-            pointer-events: none; /* Evitar interacciones en la imagen ampliada */
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            pointer-events: none;
         }
 
         .close-button {
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: #ff3b30; /* Color del botón de cerrar */
+            background-color: #ff3b30; 
             color: white;
             border: none;
             border-radius: 50%;
             padding: 10px 15px;
             cursor: pointer;
             font-size: 1.5em;
-            transition: background-color 0.3s ease; /* Transición para el hover */
-            z-index: 1001; /* Asegura que esté encima de otros elementos */
+            transition: background-color 0.3s ease; 
+            z-index: 1001; 
         }
 
         .close-button:hover {
-            background-color: #ff1f20; /* Color más oscuro al pasar el mouse */
+            background-color: #ff1f20; 
         }
 
         h1 {
             font-size: 1.5em;
-            color: #333; /* Color del texto del nombre */
+            color: #333; 
         }
 
         p {
-            color: #555; /* Color del texto del ID */
+            color: #555; 
             margin-top: 10px;
         }
 
-        /* Estilos responsivos */
-        @media (max-width: 400px) {
-            .profile-container {
-                width: 90%; /* Ancho del contenedor en pantallas pequeñas */
-            }
+        /* Animación de iconos flotando */
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            animation: iconsFloat 3s infinite ease-in-out;
+        }
 
-            .profile-container img {
-                width: 240px; /* Tamaño de imagen en pantallas pequeñas */
-                height: 240px; /* Tamaño de imagen en pantallas pequeñas */
-            }
+        @keyframes iconsFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
 
-            h1 {
-                font-size: 1.2em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-            }
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin: 0 4px; 
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+        .icon-espana {
+            background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
+        }
+
+        .icon-piscis {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .icon-playstation {
+            background-color: #1d1d1d;
+            color: white;
+            font-size: 1.5em;
+            font-family: sans-serif;
+        }
+
+        .icon-gym {
+            background-color: #e67e22; 
+            color: white; 
+            font-size: 1.5em; 
+            font-weight: bold; 
+        }
+
+        .icon-twitter {
+            background-color: #1da1f2;
+            color: white;
+            font-size: 1.5em;
         }
     </style>
 </head>
 <body>
+    <!-- Animación de partículas en el fondo -->
+    <div id="particles-js"></div>
+
     <div class="profile-container" role="region" aria-label="Perfil de usuario">
         <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
         <h1>David Rossell</h1>
@@ -136,75 +202,17 @@
             <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
         </div>
     </div>
-<!-- Contenedor de iconos -->
-<div class="icon-container">
-    <div class="icon icon-espana" title="España"></div>
-    <div class="icon icon-piscis" title="Piscis">♓</div>
-    <div class="icon icon-playstation" title="Me gusta jugar">🎮</div>
-    <div class="icon icon-gym" title="Voy al gym">🏋️</div> <!-- Icono de ir al gym -->
-    <div class="icon icon-twitter" title="X">🐦</div>
-</div>
 
-<style>
-    /* Sección de íconos */
-    .icon-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-    }
+    <!-- Contenedor de iconos -->
+    <div class="icon-container">
+        <div class="icon icon-espana" title="España"></div>
+        <div class="icon icon-piscis" title="Piscis">♓</div>
+        <div class="icon icon-playstation" title="Me gusta jugar">🎮</div>
+        <div class="icon icon-gym" title="Voy al gym">🏋️</div>
+        <div class="icon icon-twitter" title="X">🐦</div>
+    </div>
 
-    .icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-        cursor: pointer;
-        font-size: 1.2em;
-        margin: 0 4px; /* Añade espacio entre los iconos */
-    }
-
-    .icon:hover {
-        transform: scale(1.1);
-    }
-
-    /* Icono de la bandera de España */
-    .icon-espana {
-        background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
-    }
-
-    /* Icono de Piscis */
-    .icon-piscis {
-        background-color: #3498db;
-        color: white;
-        font-weight: bold;
-        font-size: 1.5em;
-    }
-
-    /* Icono de PlayStation */
-    .icon-playstation {
-        background-color: #1d1d1d;
-        color: white;
-        font-size: 1.5em;
-        font-family: sans-serif;
-    }
-/* Icono de Gym (pesas) */
-.icon-gym {
-    background-color: #e67e22; /* Color de fondo anaranjado */
-    color: white; /* Color del símbolo */
-    font-size: 1.5em; /* Tamaño del símbolo */
-    font-weight: bold; /* Peso de la fuente */
-}
-    /* Icono de Twitter */
-    .icon-twitter {
-        background-color: #1da1f2;
-        color: white;
-        font-size: 1.5em;
-    }
-</style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         const profileImage = document.getElementById('profileImage');
         const fullScreenContainer = document.getElementById('fullScreenContainer');
@@ -212,9 +220,16 @@
 
         // Función para mostrar la imagen ampliada
         profileImage.addEventListener('click', function() {
-            fullScreenContainer.style.display = 'flex'; // Mostrar imagen ampliada
-            profileImage.classList.toggle('clicked'); // Agregar o quitar clase para el efecto de clic
+            fullScreenContainer.style.display = 'flex'; // Mostrar la imagen ampliada
+            profileImage.classList.toggle('clicked'); // Efecto de clic en la imagen
+            playClickSound(); // Reproducir sonido al hacer clic en la imagen
         });
+
+        // Función para reproducir un sonido al hacer clic
+        function playClickSound() {
+            const clickSound = new Audio('https://www.fesliyanstudios.com/play-mp3/5479'); // URL del sonido
+            clickSound.play();
+        }
 
         // Ocultar la imagen ampliada al hacer clic en el botón de cerrar
         closeButton.addEventListener('click', function() {
@@ -222,14 +237,122 @@
             profileImage.classList.remove('clicked'); // Quitar clase de clic
         });
 
-        // Ocultar la imagen ampliada al hacer clic en ella
+        // Ocultar la imagen ampliada al hacer clic fuera de la imagen
         fullScreenContainer.addEventListener('click', function(event) {
-            if (event.target === fullScreenContainer) { // Solo si se hace clic en el fondo
-                fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
-                profileImage.classList.remove('clicked'); // Quitar clase de clic
+            if (event.target === fullScreenContainer) { 
+                fullScreenContainer.style.display = 'none'; 
+                profileImage.classList.remove('clicked'); 
             }
+        });
+
+        // Configuración de partículas de fondo
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
         });
     </script>
 </body>
 </html>
+           
 
