@@ -51,7 +51,7 @@
 </audio>
 
 <!-- Contador de visitas -->
-<div id="visitCounterDisplay" class="visit-counter">Visitas: 203</div>
+<div id="visitCounterDisplay" class="visit-counter">Visitas: 0</div>
     
 <!-- Tu contenido aquí (se mantiene el que tienes) -->
 
@@ -87,11 +87,19 @@
 
     // Leer el contador de visitas y actualizar
     onValue(visitCounterRef, (snapshot) => {
-        let visitCount = snapshot.val() || 203; // Inicia en 203 si no hay datos
-        document.getElementById('visitCounterDisplay').textContent = `Visitas: ${visitCount}`;
-        visitCount++; // Incrementar contador
+        let visitCount = snapshot.val(); // Obtiene el contador de visitas
 
-        // Establecer el nuevo contador
+        if (visitCount === null) {
+            visitCount = 0; // Si no hay valor, inicializa en 0
+        }
+
+        // Mostrar el contador de visitas en la página
+        document.getElementById('visitCounterDisplay').textContent = `Visitas: ${visitCount + 1}`;
+
+        // Incrementar el contador
+        visitCount++; 
+
+        // Establecer el nuevo contador en Firebase
         set(visitCounterRef, visitCount).catch((error) => {
             console.error("Error al actualizar el contador: ", error);
         });
@@ -100,6 +108,7 @@
 
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
