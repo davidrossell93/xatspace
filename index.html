@@ -185,20 +185,6 @@
             color: white;
             font-size: 1.5em;
         }
-
-        /* Estilo del contador de visitas */
-        .visit-counter {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 1.2em;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1001; /* Asegúrate que esté encima de otros elementos */
-        }
     </style>
 </head>
 <body>
@@ -247,78 +233,172 @@
 
     // Agregar eventos de interacción
     addInteractionEvents();
-    
-    // Contador de visitas
-    let visitCount = localStorage.getItem('visitCount');
-    if (!visitCount) {
-        visitCount = 203; // Inicia en 203
-    } else {
-        visitCount = parseInt(visitCount) + 1; // Incrementa el contador
-    }
-    localStorage.setItem('visitCount', visitCount); // Guarda el nuevo contador
-
-      // Muestra el contador de visitas en la página
-    const visitCounter = document.createElement('div');
-    visitCounter.className = 'visit-counter';
-    visitCounter.innerText = `Visitas: ${visitCount}`;
-    document.body.appendChild(visitCounter);
-
-    // Configuración de la imagen de perfil en modo pantalla completa
-    const profileImage = document.querySelector('.profile-container img');
-    const fullScreenContainer = document.createElement('div');
-    fullScreenContainer.className = 'full-screen';
-    
-    // Evento para abrir la imagen en pantalla completa al hacer clic
-    profileImage.addEventListener('click', function() {
-        const fullScreenImage = document.createElement('img');
-        fullScreenImage.src = profileImage.src;
-        fullScreenContainer.appendChild(fullScreenImage);
-        fullScreenContainer.style.display = 'flex';
-        document.body.appendChild(fullScreenContainer);
-    });
-
-    // Evento para cerrar la imagen en pantalla completa al hacer clic
-    fullScreenContainer.addEventListener('click', function() {
-        fullScreenContainer.style.display = 'none';
-        fullScreenContainer.innerHTML = ''; // Limpia el contenido para reutilizar
-    });
-
-    // Cerrar el modo pantalla completa con un botón
-    const closeButton = document.createElement('button');
-    closeButton.className = 'close-button';
-    closeButton.innerText = 'X';
-    closeButton.onclick = function() {
-        fullScreenContainer.style.display = 'none';
-        fullScreenContainer.innerHTML = ''; // Limpia el contenido para reutilizar
-    };
-    fullScreenContainer.appendChild(closeButton);
-    
-    // Añadir contenedor de pantalla completa al cuerpo
-    document.body.appendChild(fullScreenContainer);
-});
+  });
 </script>
 
-<div id="particles-js"></div>
+    <!-- Animación de partículas en el fondo -->
+    <div id="particles-js"></div>
 
-<div class="profile-container">
-    <img src="https://media.discordapp.net/attachments/753844902834786906/1167648997558841414/img_20230828_183908.jpg" alt="David">
-    <h1>David</h1>
-    <p>Bienvenido a mi perfil. ¡Explora y disfruta!</p>
-    <div class="icon-container">
-        <div class="icon icon-espana">🇪🇸</div>
-        <div class="icon icon-piscis">♓</div>
-        <div class="icon icon-playstation">🎮</div>
-        <div class="icon icon-gym">🏋️</div>
-        <div class="icon icon-twitter">🐦</div>
+    <div class="profile-container" role="region" aria-label="Perfil de usuario">
+        <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
+        <h1>David Rossell</h1>
+        <p id="profileDesc">ID: xat1548951976</p>
+        
+        <!-- Contenedor para la imagen ampliada -->
+        <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
+            <button class="close-button" aria-label="Cerrar imagen ampliada">&times;</button>
+            <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
+        </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-    particlesJS.load('particles-js', 'https://raw.githubusercontent.com/davidrossell93/xatspace/main/particles.json', function() {
-        console.log('callback - particles.js config loaded');
-    });
+    <!-- Contenedor de iconos -->
+    <div class="icon-container">
+        <div class="icon icon-espana" title="España"></div>
+        <div class="icon icon-piscis" title="Piscis">♓</div>
+        <div class="icon icon-playstation" title="Me gusta jugar">🎮</div>
+        <div class="icon icon-gym" title="Voy al gym">🏋️</div>
+        <div class="icon icon-twitter" title="X">🐦</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        const profileImage = document.getElementById('profileImage');
+        const fullScreenContainer = document.getElementById('fullScreenContainer');
+        const closeButton = document.querySelector('.close-button');
+
+        // Función para mostrar la imagen ampliada
+        profileImage.addEventListener('click', function() {
+            fullScreenContainer.style.display = 'flex'; // Mostrar la imagen ampliada
+            profileImage.classList.toggle('clicked'); // Efecto de clic en la imagen
+            playClickSound(); // Reproducir sonido al hacer clic en la imagen
+        });
+
+        // Función para reproducir un sonido al hacer clic
+        function playClickSound() {
+            const clickSound = new Audio('https://raw.githubusercontent.com/davidrossell93/xatspace/main/ampliada.mp3'); // URL del sonido
+            clickSound.play();
+        }
+
+        // Ocultar la imagen ampliada al hacer clic en el botón de cerrar
+        closeButton.addEventListener('click', function() {
+            fullScreenContainer.style.display = 'none'; // Ocultar imagen ampliada
+            profileImage.classList.remove('clicked'); // Quitar clase de clic
+        });
+
+        // Ocultar la imagen ampliada al hacer clic fuera de la imagen
+        fullScreenContainer.addEventListener('click', function(event) {
+            if (event.target === fullScreenContainer) { 
+                fullScreenContainer.style.display = 'none'; 
+                profileImage.classList.remove('clicked'); 
+            }
+        });
+
+        // Configuración de partículas de fondo
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                },
+                    remove: {
+                        particles_nb: 2
+                    }
+                     }
+                 },
+            retina_detect: true
+             });
 </script>
 </body>
 </html>
-
