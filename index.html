@@ -400,33 +400,6 @@
             retina_detect: true
         });
     </script>
-    <div id="visitCounter" class="visit-counter">
-    Visitas: <span id="visitCount">203</span>
-        .visit-counter {
-    position: absolute;
-    top: 20px; /* Distancia desde la parte superior */
-    right: 20px; /* Distancia desde la derecha */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
-    color: #333; /* Color del texto */
-    padding: 10px 15px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
-    font-size: 1em; /* Tamaño de fuente */
-    z-index: 1000; /* Asegura que esté encima de otros elementos */
-}
-        // Contador de visitas
-let visitCount = 203; // Comenzamos con 203 visitas
-const visitCountElement = document.getElementById('visitCount');
-
-// Función para simular el incremento de visitas
-function incrementVisitCount() {
-    visitCount += 1; // Aumenta el contador
-    visitCountElement.textContent = visitCount; // Actualiza el texto en el contador
-}
-
-// Llama a la función cada cierto tiempo (puedes ajustar el tiempo)
-setInterval(incrementVisitCount, 5000); // Aumenta cada 5 segundos (5000 ms)
-</div>
 </body>
 </html>
            
