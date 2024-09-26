@@ -464,6 +464,23 @@
             });
         });
     });
+
+    // Compatibilidad con Safari para la reproducción automática
+    if (navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome')) {
+        // Esperar un tiempo para permitir la carga completa de la página
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Aumentar el contador manualmente
+                visitCounterRef.once('value', (snapshot) => {
+                    let visitCount = snapshot.val() || 0;
+                    visitCount++;
+                    set(visitCounterRef, visitCount).catch((error) => {
+                        console.error("Error al actualizar el contador en Safari: ", error);
+                    });
+                });
+            }, 1000); // Ajustar el tiempo si es necesario
+        });
+    }
 </script>
 </body>
 </html>
