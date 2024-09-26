@@ -188,70 +188,7 @@
     </style>
 </head>
 <body>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil con Audio Oculto</title>
-    <style>
-        body {
-            height: 200vh; /* Aumentamos la altura del cuerpo para que se pueda hacer scroll */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        
-        /* Ocultar el reproductor Mixcloud */
-        #mixcloudPlayer {
-            visibility: hidden; /* Ocultar el reproductor inicialmente */
-            height: 0;
-            width: 0;
-        }
-    </style>
-</head>
-<body>
 
-    <h1>Bienvenido a mi perfil</h1>
-    <p>Desplázate hacia abajo o haz clic en cualquier parte para activar la música.</p>
-
-    <!-- Reproductor Mixcloud oculto -->
-    <div id="mixcloudPlayer">
-        <iframe width="100%" height="60" 
-                src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fhsgalletti2022%2Feminem-mockingbird%2F" 
-                frameborder="0" allow="autoplay">
-        </iframe>
-    </div>
-
-    <script>
-        const mixcloudPlayer = document.getElementById('mixcloudPlayer');
-
-        // Función para reproducir la música
-        function playMusic() {
-            mixcloudPlayer.style.visibility = 'visible'; // Hacer visible el reproductor
-            mixcloudPlayer.style.height = '60px'; // Ajustar altura del reproductor
-            const iframe = mixcloudPlayer.querySelector('iframe');
-            iframe.contentWindow.postMessage('play', '*'); // Intentar iniciar la reproducción
-        }
-
-        // Evento al hacer scroll
-        window.addEventListener('scroll', function() {
-            playMusic(); // Reproducir música al hacer scroll
-            window.removeEventListener('scroll', arguments.callee); // Remover el listener para evitar múltiples llamadas
-        });
-
-        // Evento al hacer clic en cualquier parte del cuerpo
-        document.body.addEventListener('click', function() {
-            playMusic(); // Reproducir música al hacer clic
-            document.body.removeEventListener('click', arguments.callee); // Remover el listener
-        });
-    </script>
-
-</body>
-</html>
     <!-- Animación de partículas en el fondo -->
     <div id="particles-js"></div>
 
