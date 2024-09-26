@@ -26,20 +26,42 @@
             position: relative;
         }
 
-/* Estilo para posicionar el contador */
-.counter {
-    position: fixed; /* Fijar la posición en la pantalla */
-    top: 10px; /* Espaciado desde la parte superior */
-    right: 10px; /* Espaciado desde la derecha */
-    z-index: 100; /* Asegurarse de que esté encima de otros elementos */
-}
+    /* Estilo para posicionar el contador */
+        .counter {
+            position: fixed; /* Fijar la posición en la pantalla */
+            top: 10px; /* Espaciado desde la parte superior */
+            right: 10px; /* Espaciado desde la derecha */
+            z-index: 100; /* Asegurarse de que esté encima de otros elementos */
+            background-color: #fff; /* Fondo blanco */
+            border: 2px solid #3498db; /* Borde azul */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 10px; /* Espaciado interno */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+            text-align: center; /* Centrar el contenido */
+            font-family: Arial, sans-serif; /* Fuente más agradable */
+        }
 
-/* Estilo opcional para el iframe */
-.counter iframe {
-    border: none; /* Sin bordes */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle estilo */
-}
+        /* Estilo para ocultar el enlace "more information" */
+        .counter a {
+            display: none; /* Oculta el enlace */
+        }
+
+        /* Estilo para el texto de visitas */
+        .counter h2 {
+            margin: 0; /* Sin margen */
+            font-size: 18px; /* Tamaño de fuente del título */
+            color: #3498db; /* Color del texto */
+            font-weight: bold; /* Negrita */
+        }
+
+        /* Estilo para el iframe */
+        .counter iframe {
+            border: none; /* Sin bordes */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
+            width: 100%; /* Ancho completo */
+            height: 40px; /* Altura fija */
+        }
         
         /* Animación de partículas en el fondo */
         #particles-js {
