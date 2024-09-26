@@ -420,7 +420,7 @@
             retina_detect: true
              });
 </script>
-    <script type="module">
+<script type="module">
     // Importar funciones de Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
     import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
@@ -442,23 +442,26 @@
     const db = getDatabase(app);
     const visitCounterRef = ref(db, 'visitCounter');
 
-    // Leer el contador de visitas y actualizar
-    onValue(visitCounterRef, (snapshot) => {
-        let visitCount = snapshot.val(); // Obtiene el contador de visitas
+    document.addEventListener('DOMContentLoaded', () => {
+        // Leer el contador de visitas y actualizar
+        onValue(visitCounterRef, (snapshot) => {
+            let visitCount = snapshot.val(); // Obtiene el contador de visitas
 
-        if (visitCount === null) {
-            visitCount = 0; // Si no hay valor, inicializa en 0
-        }
+            // Inicializar el contador si es null
+            if (visitCount === null) {
+                visitCount = 0; // Si no hay visitas, comienza en 0
+            }
 
-        // Mostrar el contador de visitas en la página
-        document.getElementById('visitCounterDisplay').textContent = `Visitas: ${visitCount + 1}`;
+            // Incrementar el contador
+            visitCount++;
 
-        // Incrementar el contador
-        visitCount++; 
+            // Mostrar el contador de visitas en la página
+            document.getElementById('visitCounterDisplay').textContent = `Visitas: ${visitCount}`;
 
-        // Establecer el nuevo contador en Firebase
-        set(visitCounterRef, visitCount).catch((error) => {
-            console.error("Error al actualizar el contador: ", error);
+            // Establecer el nuevo contador en Firebase
+            set(visitCounterRef, visitCount).catch((error) => {
+                console.error("Error al actualizar el contador: ", error);
+            });
         });
     });
 </script>
