@@ -442,12 +442,16 @@
   const db = getDatabase(app);
   const visitCounterRef = ref(db, 'visitCounter');
 
-  // Mostrar el contador de visitas
+  // Leer el contador de visitas y actualizar
   onValue(visitCounterRef, (snapshot) => {
       let visitCount = snapshot.val() || 203; // Inicia en 203 si no hay datos
       document.getElementById('visitCounterDisplay').textContent = `Visitas: ${visitCount}`;
       visitCount++; // Incrementar contador
-      set(visitCounterRef, visitCount); // Guardar el nuevo contador
+
+      // Establecer el nuevo contador con un pequeño retraso
+      setTimeout(() => {
+          set(visitCounterRef, visitCount); // Guardar el nuevo contador
+      }, 100); // Esperar 100ms para evitar conflictos
   });
 </script>
     
