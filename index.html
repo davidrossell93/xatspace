@@ -188,12 +188,35 @@
     </style>
 </head>
 <body>
-<div style="display:none;">
-    <iframe width="100%" height="60" 
-            src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&autoplay=1&feed=%2Fhsgalletti2022%2Feminem-mockingbird%2F" 
-            frameborder="0" allow="autoplay">
-    </iframe>
-</div>
+<body>
+    <!-- Tu contenido del perfil -->
+
+    <!-- Reproductor Mixcloud oculto -->
+    <div id="mixcloudPlayer" style="visibility:hidden; height:0px;">
+        <iframe width="100%" height="60" 
+                src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&autoplay=1&feed=%2Fhsgalletti2022%2Feminem-mockingbird%2F" 
+                frameborder="0" allow="autoplay">
+        </iframe>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Intentar reproducir la música automáticamente después de que la página se cargue
+            const iframe = document.querySelector('#mixcloudPlayer iframe');
+            const autoplay = () => {
+                iframe.contentWindow.postMessage('play', '*');
+            };
+
+            // Esperar hasta que el reproductor esté completamente cargado
+            iframe.onload = autoplay;
+
+            // Forzar un intento de reproducción adicional si el evento onload falla
+            setTimeout(autoplay, 3000); // Espera 3 segundos y vuelve a intentar reproducir
+        };
+    </script>
+    
+    <!-- Más contenido de la página -->
+</body>
     <!-- Animación de partículas en el fondo -->
     <div id="particles-js"></div>
 
