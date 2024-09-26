@@ -188,7 +188,52 @@
     </style>
 </head>
 <body>
+<audio id="autoplayAudio" autoplay loop style="display:none;">
+  <source src="https://github.com/davidrossell93/xatspace/blob/main/eminem.mp3" type="audio/mpeg">
+  Tu navegador no soporta la reproducción de audio.
+</audio>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById("autoplayAudio");
+
+    // Función para intentar reproducir el audio
+    var tryAutoPlay = function() {
+        audio.play().then(function() {
+            console.log('Reproducción automática exitosa');
+            removeInteractionEvents(); // Quitar eventos si la reproducción es exitosa
+        }).catch(function(error) {
+            console.log('Reproducción automática bloqueada', error);
+        });
+    };
+
+    // Intento inicial al cargar la página
+    tryAutoPlay();
+
+    // Agregar todos los eventos de interacción posibles
+    var addInteractionEvents = function() {
+        document.addEventListener('click', tryAutoPlay, true);
+        document.addEventListener('touchstart', tryAutoPlay, true);
+        document.addEventListener('scroll', tryAutoPlay, true);
+        document.addEventListener('mousemove', tryAutoPlay, true);
+        document.addEventListener('keydown', tryAutoPlay, true);
+        document.addEventListener('wheel', tryAutoPlay, true);
+    };
+
+    // Quitar todos los eventos de interacción cuando el audio se reproduce
+    var removeInteractionEvents = function() {
+        document.removeEventListener('click', tryAutoPlay, true);
+        document.removeEventListener('touchstart', tryAutoPlay, true);
+        document.removeEventListener('scroll', tryAutoPlay, true);
+        document.removeEventListener('mousemove', tryAutoPlay, true);
+        document.removeEventListener('keydown', tryAutoPlay, true);
+        document.removeEventListener('wheel', tryAutoPlay, true);
+    };
+
+    // Agregar eventos de interacción
+    addInteractionEvents();
+  });
+</script>
     <!-- Animación de partículas en el fondo -->
     <div id="particles-js"></div>
 
