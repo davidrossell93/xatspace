@@ -26,40 +26,25 @@
             position: relative;
         }
 
-/* Estilo para el contenedor del contador */
+/* Contenedor del contador */
 .counter {
     position: fixed; /* Fijado en la pantalla */
     top: 10px; /* Espacio desde la parte superior */
     right: 10px; /* Espacio desde la parte derecha */
-    z-index: 100; /* Asegurar que esté sobre otros elementos */
-    background-color: #f0f0f0; /* Fondo claro para destacar el contador */
-    border-radius: 12px; /* Bordes redondeados */
+    z-index: 100; /* Para que aparezca encima de otros elementos */
+    background-color: #ffffff; /* Fondo blanco */
+    border: 2px solid #3498db; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
     padding: 10px; /* Espaciado interno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    text-align: center; /* Centrar el contenido dentro del contenedor */
-    font-family: Arial, sans-serif; /* Cambiar la tipografía */
-    color: #333; /* Color del texto */
-    max-width: 120px; /* Limitar el ancho máximo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    text-align: center; /* Centrar contenido */
+    font-family: Arial, sans-serif; /* Fuente más limpia */
+    color: #333; /* Color de texto */
 }
 
-/* Estilo para el enlace de "more information" */
+/* Estilo para ocultar el enlace de "more information" */
 .counter a {
-    display: none; /* Ocultar el enlace si no lo deseas */
-}
-
-/* Estilo para modificar el iframe */
-.counter iframe {
-    width: 100%; /* Hacer que ocupe todo el ancho del contenedor */
-    height: auto; /* Ajustar la altura de forma automática */
-    border: none; /* Sin bordes */
-    border-radius: 8px; /* Bordes redondeados para el iframe */
-}
-
-/* Estilo adicional para el script si carga contenido con bordes o tamaño específico */
-.counter img {
-    max-width: 100%; /* Ajustar la imagen del contador al 100% del contenedor */
-    height: auto; /* Mantener la proporción */
-    border-radius: 8px; /* Redondear las esquinas */
+    display: none;
 }
         
         /* Animación de partículas en el fondo */
