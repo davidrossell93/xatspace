@@ -20,23 +20,6 @@
             position: relative;
         }
         
-  .visit-counter {
-      position: fixed; /* Fija el contador en la esquina superior derecha */
-      top: 20px; /* Espaciado desde la parte superior */
-      right: 20px; /* Espaciado desde la derecha */
-      background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
-      color: white; /* Color del texto */
-      padding: 10px 15px; /* Espaciado interno */
-      border-radius: 5px; /* Bordes redondeados */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía */
-      font-size: 1.2em; /* Tamaño de la fuente */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para efecto de elevación */
-      transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
-  }
-  
-  .visit-counter:hover {
-      background-color: rgba(0, 123, 255, 0.9); /* Cambio de color al pasar el mouse */
-  }
         /* Animación de partículas en el fondo */
         #particles-js {
             position: absolute;
@@ -418,41 +401,6 @@
                  },
             retina_detect: true
              });
-</script>
-
-    <script type="module">
-  // Importar funciones de Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-  import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
-
-  // Configuración de tu Firebase
-  const firebaseConfig = {
-      apiKey: "AIzaSyABN1pOD9-YdFcxaqieFIsdh98k6MdaxTs",
-      authDomain: "xatspace-a563a.firebaseapp.com",
-      databaseURL: "https://xatspace-a563a-default-rtdb.firebaseio.com",
-      projectId: "xatspace-a563a",
-      storageBucket: "xatspace-a563a.appspot.com",
-      messagingSenderId: "318004418880",
-      appId: "1:318004418880:web:e2f8454a50e86f52f382a5",
-      measurementId: "G-LY9CGSWVJ3"
-  };
-
-  // Inicializar Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const visitCounterRef = ref(db, 'visitCounter');
-
-  // Leer el contador de visitas y actualizar
-  onValue(visitCounterRef, (snapshot) => {
-      let visitCount = snapshot.val() || 203; // Inicia en 203 si no hay datos
-      document.getElementById('visitCounterDisplay').textContent = `Visitas: ${visitCount}`;
-      visitCount++; // Incrementar contador
-
-      // Establecer el nuevo contador con un pequeño retraso
-      setTimeout(() => {
-          set(visitCounterRef, visitCount); // Guardar el nuevo contador
-      }, 100); // Esperar 100ms para evitar conflictos
-  });
 </script>
     
 </body>
