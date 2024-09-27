@@ -17,26 +17,13 @@ body {
 @keyframes backgroundAnimate {
     0% { 
         background: linear-gradient(135deg, #8e44ad, #3498db); 
-        --text-color: #ffffff; /* Color inicial del texto */
     }
     50% { 
         background: linear-gradient(135deg, #2c3e50, #4ca1af); 
-        --text-color: #ecf0f1; /* Color claro para 50% */
     }
     100% { 
         background: linear-gradient(135deg, #f39c12, #d35400); 
-        --text-color: #2c3e50; /* Color oscuro para 100% */
     }
-}
-
-/* Animación de partículas en el fondo */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
 }
 
 /* Estilos del contenedor del perfil */
@@ -52,155 +39,12 @@ body {
     animation: fadeIn 2s ease; /* Animación de aparición */
 }
 
-/* Animación de aparición para el contenedor del perfil */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* Estilos para el texto "David Rossell" */
 h1 {
     font-size: 2.5em; /* Tamaño de fuente grande */
-    color: var(--text-color); /* Color del texto según la variable */
+    color: white; /* Inicialmente blanco */
     margin: 0; /* Eliminar margen */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Sombra para el texto */
-    transition: color 0.3s ease; /* Transición suave del color */
 }
 
-/* Efecto de hover en el texto */
-h1:hover {
-    text-shadow: 2px 2px 12px rgba(255, 255, 255, 0.6); /* Aumentar la sombra al pasar el ratón */
-}
-
-/* Estilos de la imagen del perfil */
-.profile-container img {
-    border-radius: 50%;
-    width: 320px;
-    height: 320px;
-    object-fit: cover; /* Cambiado a 'cover' para evitar distorsión */
-    border: 2px solid transparent; /* Borde transparente inicialmente */
-    transition: border 0.3s ease; 
-    margin: 20px 0; /* Añadir margen superior e inferior */
-    display: block;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.profile-container img:hover {
-    border: 2px solid var(--text-color); /* Cambiar el borde al pasar el ratón */
-}
-
-/* Estilos del overlay a pantalla completa */
-.full-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    cursor: pointer;
-}
-
-/* Estilos para la imagen a pantalla completa */
-.full-screen img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    pointer-events: none;
-}
-
-/* Estilos para el botón de cerrar */
-.close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #ff3b30; 
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5em;
-    transition: background-color 0.3s ease; 
-    z-index: 1001; 
-}
-
-.close-button:hover {
-    background-color: #ff1f20; 
-}
-
-/* Estilos para los párrafos */
-p {
-    color: #555; 
-    margin-top: 10px;
-}
-
-/* Animación de iconos flotantes */
-.icon-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    animation: iconsFloat 3s infinite ease-in-out;
-}
-
-/* Animación de los iconos */
-@keyframes iconsFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* Estilos de los iconos */
-.icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1.2em;
-    margin: 0 4px; 
-}
-
-.icon:hover {
-    transform: scale(1.1);
-}
-
-/* Estilos específicos para los iconos */
-.icon-espana {
-    background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
-}
-
-.icon-piscis {
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.icon-playstation {
-    background-color: #1d1d1d;
-    color: white;
-    font-size: 1.5em;
-    font-family: sans-serif;
-}
-
-.icon-gym {
-    background-color: #e67e22; 
-    color: white; 
-    font-size: 1.5em; 
-    font-weight: bold; 
-}
-
-.icon-twitter {
-    background-color: #1da1f2;
-    color: white;
-    font-size: 1.5em;
-}
+/* Otros estilos que ya hemos definido... */
