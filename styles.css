@@ -64,122 +64,117 @@
             box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
         }
 
-.full-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    cursor: pointer;
-}
+        .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); 
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: pointer;
+        }
 
-.full-screen img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    pointer-events: none;
-}
+        .full-screen img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
 
-.close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #ff3b30;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5em;
-    transition: background-color 0.3s ease;
-    z-index: 1001;
-}
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff3b30; 
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease; 
+            z-index: 1001; 
+        }
 
-.close-button:hover {
-    background-color: #ff1f20;
-}
+        .close-button:hover {
+            background-color: #ff1f20; 
+        }
 
-p {
-    color: #555;
-    margin-top: 10px;
-}
+        h1 {
+            font-size: 1.5em;
+            color: #333; 
+        }
 
-/* Animación de iconos flotando */
-.icon-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    animation: iconsFloat 3s infinite ease-in-out;
-}
+        p {
+            color: #555; 
+            margin-top: 10px;
+        }
 
-@keyframes iconsFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
+        /* Animación de iconos flotando */
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            animation: iconsFloat 3s infinite ease-in-out;
+        }
 
-.icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1.2em;
-    margin: 0 4px;
-}
+        @keyframes iconsFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
 
-.icon:hover {
-    transform: scale(1.1);
-}
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin: 0 4px; 
+        }
 
-.icon-espana {
-    background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
-}
+        .icon:hover {
+            transform: scale(1.1);
+        }
 
-.icon-piscis {
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-}
+        .icon-espana {
+            background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
+        }
 
-.icon-playstation {
-    background-color: #1d1d1d;
-    color: white;
-    font-size: 1.5em;
-    font-family: sans-serif;
-}
+        .icon-piscis {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
 
-.icon-gym {
-    background-color: #e67e22;
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-}
+        .icon-playstation {
+            background-color: #1d1d1d;
+            color: white;
+            font-size: 1.5em;
+            font-family: sans-serif;
+        }
 
-.icon-twitter {
-    background-color: #1da1f2;
-    color: white;
-    font-size: 1.5em;
-}
+        .icon-gym {
+            background-color: #e67e22; 
+            color: white; 
+            font-size: 1.5em; 
+            font-weight: bold; 
+        }
 
-/* Estilo para el contenedor de partículas */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0; /* Asegúrate de que esté detrás del texto */
-}
+        .icon-twitter {
+            background-color: #1da1f2;
+            color: white;
+            font-size: 1.5em;
+        }
