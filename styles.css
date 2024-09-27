@@ -16,9 +16,18 @@ body {
 
 /* Animation for background color change */
 @keyframes backgroundAnimate {
-    0% { background: linear-gradient(135deg, #8e44ad, #3498db); }
-    50% { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
-    100% { background: linear-gradient(135deg, #f39c12, #d35400); }
+    0% { 
+        background: linear-gradient(135deg, #8e44ad, #3498db); 
+        --circle-border-color: #007bff; /* Initial border color */
+    }
+    50% { 
+        background: linear-gradient(135deg, #2c3e50, #4ca1af); 
+        --circle-border-color: #4ca1af; /* Color for 50% */
+    }
+    100% { 
+        background: linear-gradient(135deg, #f39c12, #d35400); 
+        --circle-border-color: #d35400; /* Color for 100% */
+    }
 }
 
 /* Particle animation in the background */
@@ -57,7 +66,7 @@ body {
     width: 320px;
     height: 320px;
     object-fit: contain;
-    border: 2px solid #007bff;
+    border: 2px solid var(--circle-border-color); /* Using variable for border color */
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
     margin: 0 auto;
     display: block;
@@ -95,7 +104,7 @@ body {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    border: 2px solid #007bff;
+    border: 2px solid var(--circle-border-color); /* Using variable for border color */
     border-radius: 10px;
     transition: transform 0.3s ease;
     pointer-events: none;
