@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const tryAutoPlay = () => {
         audio.play().then(() => {
             console.log('Reproducción automática exitosa');
-            removeInteractionEvents();
+            removeInteractionEvents(); 
         }).catch(error => {
             console.log('Reproducción automática bloqueada', error);
         });
@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeButton = document.querySelector('.close-button');
 
     profileImage.addEventListener('click', () => {
-        fullScreenContainer.style.display = 'flex';
+        fullScreenContainer.style.display = 'flex'; 
         profileImage.classList.toggle('clicked');
-        playClickSound();
+        playClickSound(); 
     });
 
     function playClickSound() {
@@ -41,14 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     closeButton.addEventListener('click', () => {
-        fullScreenContainer.style.display = 'none';
-        profileImage.classList.remove('clicked');
+        fullScreenContainer.style.display = 'none'; 
+        profileImage.classList.remove('clicked'); 
     });
 
     fullScreenContainer.addEventListener('click', (event) => {
-        if (event.target === fullScreenContainer) {
-            fullScreenContainer.style.display = 'none';
-            profileImage.classList.remove('clicked');
+        if (event.target === fullScreenContainer) { 
+            fullScreenContainer.style.display = 'none'; 
+            profileImage.classList.remove('clicked'); 
         }
     });
 
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 value: 3,
                 random: true,
             },
-                      line_linked: {
+            line_linked: {
                 enable: true,
                 distance: 150,
                 color: '#ffffff',
@@ -83,15 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 enable: true,
                 speed: 6,
                 direction: 'none',
-                random: false,
-                straight: false,
-                out_mode: 'out',
-                bounce: false,
-                attract: {
-                    enable: false,
-                    rotateX: 600,
-                    rotateY: 1200
-                }
             }
         },
         interactivity: {
@@ -100,31 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 onhover: { enable: true, mode: 'repulse' },
                 onclick: { enable: true, mode: 'push' },
                 resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 400,
-                    line_linked: { opacity: 1 }
-                },
-                bubble: {
-                    distance: 400,
-                    size: 40,
-                    duration: 2,
-                    opacity: 8,
-                    speed: 3
-                },
-                repulse: {
-                    distance: 200,
-                    duration: 0.4
-                },
-                push: {
-                    particles_nb: 4
-                },
-                remove: {
-                    particles_nb: 2
-                }
             }
         },
         retina_detect: true
-    });
-});
