@@ -11,26 +11,9 @@ body {
     cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
     overflow: hidden;
     position: relative;
-    animation: backgroundAnimate 15s infinite alternate; /* Added animation for background color change */
 }
 
-/* Animation for background color change */
-@keyframes backgroundAnimate {
-    0% { 
-        background: linear-gradient(135deg, #8e44ad, #3498db); 
-        --circle-border-color: #007bff; /* Initial border color */
-    }
-    50% { 
-        background: linear-gradient(135deg, #2c3e50, #4ca1af); 
-        --circle-border-color: #4ca1af; /* Color for 50% */
-    }
-    100% { 
-        background: linear-gradient(135deg, #f39c12, #d35400); 
-        --circle-border-color: #d35400; /* Color for 100% */
-    }
-}
-
-/* Particle animation in the background */
+/* Animación de partículas en el fondo */
 #particles-js {
     position: absolute;
     width: 100%;
@@ -40,7 +23,6 @@ body {
     z-index: 0;
 }
 
-/* Profile container styles */
 .profile-container {
     background-color: rgba(255, 255, 255, 0.95); 
     border-radius: 15px;
@@ -54,19 +36,42 @@ body {
     animation: fadeIn 2s ease;
 }
 
-/* Fade-in animation for the profile container */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Profile image styles */
+.animated-text {
+    font-size: 3em; /* Tamaño de fuente grande */
+    background: linear-gradient(90deg, #8e44ad, #3498db); /* Degradado de colores */
+    -webkit-background-clip: text; /* Cortar el fondo en el texto */
+    -webkit-text-fill-color: transparent; /* Hacer que el color del texto sea transparente */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Sombra para resaltar el texto */
+    animation: colorChange 5s infinite alternate; /* Animación de cambio de color */
+    transition: transform 0.3s ease; /* Transición suave para efectos de hover */
+}
+
+@keyframes colorChange {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+.animated-text:hover {
+    transform: scale(1.1); /* Escala al pasar el cursor */
+    color: #fff; /* Color blanco al hacer hover */
+    text-shadow: 4px 4px 16px rgba(0, 0, 0, 0.6); /* Aumentar sombra al hacer hover */
+}
+
 .profile-container img {
     border-radius: 50%;
     width: 320px;
     height: 320px;
     object-fit: contain;
-    border: 2px solid var(--circle-border-color); /* Using variable for border color */
+    border: 2px solid #007bff;
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
     margin: 0 auto;
     display: block;
@@ -84,7 +89,6 @@ body {
     box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
 }
 
-/* Full-screen overlay styles */
 .full-screen {
     position: fixed;
     top: 0;
@@ -99,18 +103,16 @@ body {
     cursor: pointer;
 }
 
-/* Full-screen image styles */
 .full-screen img {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    border: 2px solid var(--circle-border-color); /* Using variable for border color */
+    border: 2px solid #007bff;
     border-radius: 10px;
     transition: transform 0.3s ease;
     pointer-events: none;
 }
 
-/* Close button styles */
 .close-button {
     position: absolute;
     top: 20px;
@@ -130,19 +132,17 @@ body {
     background-color: #ff1f20; 
 }
 
-/* Heading styles */
 h1 {
     font-size: 1.5em;
     color: #333; 
 }
 
-/* Paragraph styles */
 p {
     color: #555; 
     margin-top: 10px;
 }
 
-/* Floating icons animation */
+/* Animación de iconos flotando */
 .icon-container {
     display: flex;
     justify-content: space-around;
@@ -150,13 +150,11 @@ p {
     animation: iconsFloat 3s infinite ease-in-out;
 }
 
-/* Icons floating animation */
 @keyframes iconsFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-/* Icon styles */
 .icon {
     width: 50px;
     height: 50px;
@@ -175,7 +173,6 @@ p {
     transform: scale(1.1);
 }
 
-/* Specific icon styles */
 .icon-espana {
     background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
 }
