@@ -96,13 +96,41 @@ document.addEventListener('DOMContentLoaded', function() {
         retina_detect: true
     });
 
+    // Función para interpolar entre dos colores
+    function interpolateColor(color1, color2, factor) {
+        const result = color1.slice(); // Copiar el primer color
+        for (let i = 0; i < 3; i++) {
+            result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
+        }
+        return `rgb(${result[0]}, ${result[1]}, ${result[2]})`;
+    }
+
     // Función para cambiar el fondo de color
-    let colors = ['#8e44ad', '#3498db', '#e67e22', '#1da1f2', '#ff3b30'];
+    let colors = [
+        [142, 68, 173], // #8e44ad
+        [52, 152, 219], // #3498db
+        [230, 126, 34], // #e67e22
+        [29, 161, 242], // #1da1f2
+        [255, 59, 48]   // #ff3b30
+    ];
+
     let currentIndex = 0;
 
     function changeBackgroundColor() {
-        document.body.style.backgroundColor = colors[currentIndex];
-        currentIndex = (currentIndex + 1) % colors.length; // Ciclar a través de los colores
+        const nextIndex = (currentIndex + 1) % colors.length;
+        let step = 0;
+        const steps = 100; // número de pasos para la interpolación
+
+        const interval = setInterval(() => {
+            const color = interpolateColor(colors[currentIndex], colors[nextIndex], step / steps);
+            document.body.style.backgroundColor = color;
+            step++;
+
+            if (step > steps) {
+                clearInterval(interval);
+                currentIndex = nextIndex; // Avanza al siguiente color
+            }
+        }, 20); // Cambiar color cada 20 ms
     }
 
     // Cambia el fondo cada 5 segundos
