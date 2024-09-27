@@ -94,3 +94,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         retina_detect: true
+            
+            const animatedText = document.querySelector('.animated-text');
+
+setInterval(() => {
+    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    animatedText.style.color = randomColor; // Cambia el color del texto
+    document.body.style.background = randomColor; // Cambia el color de fondo
+}, 5000); // Cambia cada 5 segundos
