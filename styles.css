@@ -11,29 +11,29 @@ body {
     cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
     overflow: hidden;
     position: relative;
-    animation: backgroundAnimate 15s infinite alternate; /* Added animation for background color change */
+    animation: backgroundAnimate 15s infinite alternate; /* Animación del color de fondo */
 }
 
-/* Animation for background color change */
+/* Animación del cambio de color de fondo */
 @keyframes backgroundAnimate {
     0% { 
         background: linear-gradient(135deg, #8e44ad, #3498db); 
-        --circle-border-color: #007bff; /* Initial border color */
-        --text-color: #8e44ad; /* Initial text color */
+        --circle-border-color: #007bff; /* Color inicial del borde */
+        --text-color: #fff; /* Color inicial del texto */
     }
     50% { 
         background: linear-gradient(135deg, #2c3e50, #4ca1af); 
-        --circle-border-color: #4ca1af; /* Color for 50% */
-        --text-color: #4ca1af; /* Color for 50% */
+        --circle-border-color: #4ca1af; 
+        --text-color: #ffffff; /* Color para 50% */
     }
     100% { 
         background: linear-gradient(135deg, #f39c12, #d35400); 
-        --circle-border-color: #d35400; /* Color for 100% */
-        --text-color: #d35400; /* Color for 100% */
+        --circle-border-color: #d35400; 
+        --text-color: #ffffff; /* Color para 100% */
     }
 }
 
-/* Particle animation in the background */
+/* Animación de partículas en el fondo */
 #particles-js {
     position: absolute;
     width: 100%;
@@ -43,49 +43,51 @@ body {
     z-index: 0;
 }
 
-/* Profile container styles */
+/* Estilos del contenedor del perfil */
 .profile-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Cuadro blanco con algo de transparencia */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 320px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+    animation: fadeIn 2s ease; /* Animación de aparición */
 }
 
-/* Styles for the name text */
-.animated-text {
-    font-size: 3em; /* Large font size */
-    background: linear-gradient(90deg, var(--text-color), var(--text-color)); /* Gradient color */
-    -webkit-background-clip: text; /* Clip background to text */
-    -webkit-text-fill-color: transparent; /* Make text color transparent */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Shadow for text */
-    animation: colorChange 15s infinite alternate; /* Animation for color change */
-    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+/* Animación de aparición para el contenedor del perfil */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes colorChange {
-    0% {
-        background: linear-gradient(90deg, #8e44ad, #3498db);
-    }
-    50% {
-        background: linear-gradient(90deg, #2c3e50, #4ca1af);
-    }
-    100% {
-        background: linear-gradient(90deg, #f39c12, #d35400);
-    }
+/* Estilos para el texto "David Rossell" */
+h1 {
+    font-size: 2.5em; /* Tamaño de fuente grande */
+    background: linear-gradient(90deg, var(--text-color), var(--text-color)); /* Color de fondo */
+    -webkit-background-clip: text; /* Recortar fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hacer color de texto transparente */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Sombra para el texto */
+    margin: 0; /* Eliminar margen */
+    transition: transform 0.3s ease; /* Transición suave para efectos de hover */
 }
 
-.animated-text:hover {
-    transform: scale(1.1); /* Scale up on hover */
-    text-shadow: 4px 4px 16px rgba(0, 0, 0, 0.6); /* Increase shadow on hover */
+/* Efecto de hover en el texto */
+h1:hover {
+    transform: scale(1.1); /* Aumentar tamaño al pasar el ratón */
 }
 
-/* Profile image styles */
+/* Estilos de la imagen del perfil */
 .profile-container img {
     border-radius: 50%;
     width: 320px;
     height: 320px;
     object-fit: contain;
-    border: 2px solid var(--circle-border-color); /* Using variable for border color */
+    border: 2px solid var(--circle-border-color); /* Usar variable para color del borde */
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
-    margin: 0 auto;
+    margin: 20px 0; /* Añadir margen superior e inferior */
     display: block;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -99,7 +101,7 @@ body {
     box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
 }
 
-/* Full-screen overlay styles */
+/* Estilos del overlay a pantalla completa */
 .full-screen {
     position: fixed;
     top: 0;
@@ -114,18 +116,18 @@ body {
     cursor: pointer;
 }
 
-/* Full-screen image styles */
+/* Estilos para la imagen a pantalla completa */
 .full-screen img {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    border: 2px solid var(--circle-border-color); /* Using variable for border color */
+    border: 2px solid var(--circle-border-color); 
     border-radius: 10px;
     transition: transform 0.3s ease;
     pointer-events: none;
 }
 
-/* Close button styles */
+/* Estilos para el botón de cerrar */
 .close-button {
     position: absolute;
     top: 20px;
@@ -145,19 +147,13 @@ body {
     background-color: #ff1f20; 
 }
 
-/* Heading styles */
-h1 {
-    font-size: 1.5em;
-    color: #333; 
-}
-
-/* Paragraph styles */
+/* Estilos para los párrafos */
 p {
     color: #555; 
     margin-top: 10px;
 }
 
-/* Floating icons animation */
+/* Animación de iconos flotantes */
 .icon-container {
     display: flex;
     justify-content: space-around;
@@ -165,13 +161,13 @@ p {
     animation: iconsFloat 3s infinite ease-in-out;
 }
 
-/* Icons floating animation */
+/* Animación de los iconos */
 @keyframes iconsFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-/* Icon styles */
+/* Estilos de los iconos */
 .icon {
     width: 50px;
     height: 50px;
@@ -190,7 +186,7 @@ p {
     transform: scale(1.1);
 }
 
-/* Specific icon styles */
+/* Estilos específicos para los iconos */
 .icon-espana {
     background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
 }
