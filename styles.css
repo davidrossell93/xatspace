@@ -1,91 +1,68 @@
-body {
-    background: linear-gradient(135deg, #8e44ad, #3498db, #e67e22);
-    background-size: 300% 300%; /* Para permitir la animación suave */
-    animation: backgroundAnimation 10s ease infinite; /* Sincronizar la duración */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    color: #fff;
-    cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto;
-    overflow: hidden;
-    position: relative;
-}
+  body {
+            background: linear-gradient(135deg, #8e44ad, #3498db); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
+            overflow: hidden;
+            position: relative;
+        }
 
-/* Animación de fondo */
-@keyframes backgroundAnimation {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 100% 100%; }
-    75% { background-position: 0% 100%; }
-    100% { background-position: 0% 50%; }
-}
+        /* Animación de partículas en el fondo */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
 
-/* Estilo de texto mejorado */
-h1 {
-    font-size: 3em; /* Tamaño de fuente mayor */
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
-    letter-spacing: 2px; /* Espaciado entre letras */
-    animation: colorChange 10s linear infinite; /* Sincronizar con el fondo */
-    position: absolute; /* Asegúrate de que esté centrado */
-    top: 50%; /* Centrar verticalmente */
-    transform: translateY(-50%); /* Ajustar para que el centro esté en la mitad */
-}
+        .profile-container {
+            background-color: rgba(255, 255, 255, 0.95); 
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            width: 320px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            animation: fadeIn 2s ease;
+        }
 
-/* Animación de color de texto */
-@keyframes colorChange {
-    0% { color: #8e44ad; }
-    25% { color: #3498db; }
-    50% { color: #e67e22; }
-    75% { color: #3498db; }
-    100% { color: #8e44ad; }
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.profile-container {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: center;
-    width: 320px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    animation: fadeIn 2s ease;
-    margin-top: 30px; /* Asegúrate de que no se superponga con el texto */
-}
+        .profile-container img {
+            border-radius: 50%;
+            width: 320px;
+            height: 320px;
+            object-fit: contain;
+            border: 2px solid #007bff;
+            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            left: -10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        .profile-container img:hover {
+            transform: scale(1.05); 
+        }
 
-.profile-container img {
-    border-radius: 50%;
-    width: 320px;
-    height: 320px;
-    object-fit: contain;
-    border: 2px solid #007bff;
-    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-    left: -10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.profile-container img:hover {
-    transform: scale(1.05);
-}
-
-.profile-container img.clicked {
-    border: 2px solid #ffcc00;
-    box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
-}
+        .profile-container img.clicked {
+            border: 2px solid #ffcc00; 
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
+        }
 
 .full-screen {
     position: fixed;
