@@ -1,6 +1,6 @@
 body {
-    /* Cambiar a un color sólido inicial */
     background-color: #8e44ad; /* Un color inicial */
+    transition: background-color 2s ease; /* Suaviza la transición del color */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
