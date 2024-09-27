@@ -1,5 +1,7 @@
 body {
-    background: linear-gradient(135deg, #8e44ad, #3498db);
+    background: linear-gradient(135deg, #8e44ad, #3498db, #e67e22);
+    background-size: 300% 300%; /* Para permitir la animación suave */
+    animation: backgroundAnimation 10s ease infinite; /* Sincronizar la duración */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
@@ -13,17 +15,35 @@ body {
     position: relative;
 }
 
-/* Animación de partículas en el fondo */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
+/* Animación de fondo */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* Contenedor del perfil */
+/* Estilo de texto mejorado */
+h1 {
+    font-size: 3em; /* Tamaño de fuente mayor */
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    animation: colorChange 10s infinite; /* Sincronizar con el fondo */
+}
+
+/* Animación de color de texto */
+@keyframes colorChange {
+    0% { color: #ffffff; }
+    20% { color: #3498db; }
+    40% { color: #e67e22; }
+    60% { color: #8e44ad; }
+    80% { color: #3498db; }
+    100% { color: #ffffff; }
+}
+
+/* Otros estilos permanecen sin cambios */
 .profile-container {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
@@ -37,31 +57,34 @@ body {
     animation: fadeIn 2s ease;
 }
 
-/* Animación de entrada */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Imagen del perfil */
 .profile-container img {
     border-radius: 50%;
     width: 320px;
     height: 320px;
     object-fit: contain;
     border: 2px solid #007bff;
-    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     margin: 0 auto;
     display: block;
+    position: relative;
+    left: -10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto hover en la imagen */
 .profile-container img:hover {
     transform: scale(1.05);
 }
 
-/* Imagen ampliada */
+.profile-container img.clicked {
+    border: 2px solid #ffcc00;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+}
+
 .full-screen {
     position: fixed;
     top: 0;
@@ -76,7 +99,6 @@ body {
     cursor: pointer;
 }
 
-/* Estilo de la imagen ampliada */
 .full-screen img {
     max-width: 90%;
     max-height: 90%;
@@ -87,7 +109,6 @@ body {
     pointer-events: none;
 }
 
-/* Botón cerrar */
 .close-button {
     position: absolute;
     top: 20px;
@@ -103,15 +124,8 @@ body {
     z-index: 1001;
 }
 
-/* Hover en el botón cerrar */
 .close-button:hover {
     background-color: #ff1f20;
-}
-
-/* Título y párrafos */
-h1 {
-    font-size: 1.5em;
-    color: #333;
 }
 
 p {
@@ -119,7 +133,7 @@ p {
     margin-top: 10px;
 }
 
-/* Animación de iconos flotantes */
+/* Animación de iconos flotando */
 .icon-container {
     display: flex;
     justify-content: space-around;
@@ -132,7 +146,6 @@ p {
     50% { transform: translateY(-10px); }
 }
 
-/* Estilo de los iconos */
 .icon {
     width: 50px;
     height: 50px;
@@ -151,7 +164,6 @@ p {
     transform: scale(1.1);
 }
 
-/* Colores de iconos específicos */
 .icon-espana {
     background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
 }
@@ -171,32 +183,14 @@ p {
 }
 
 .icon-gym {
-    background-color: #e67e22; 
-    color: white; 
-    font-size: 1.5em; 
-    font-weight: bold; 
+    background-color: #e67e22;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .icon-twitter {
     background-color: #1da1f2;
     color: white;
     font-size: 1.5em;
-}
-
-/* Animación de cambio de color */
-@keyframes colorChange {
-    0% { color: #ffffff; }
-    25% { color: #3498db; }
-    50% { color: #e67e22; }
-    75% { color: #8e44ad; }
-    100% { color: #ffffff; }
-}
-
-/* Texto animado */
-.animated-text {
-    font-size: 2em; /* Ajusta el tamaño de la fuente según sea necesario */
-    animation: colorChange 5s infinite; /* Cambia 5s a la duración que desees */
-    background: transparent; /* Asegúrate de que no haya un fondo alrededor del texto */
-    z-index: 2; /* Asegúrate de que el texto esté encima de las partículas */
-    position: relative; /* Para asegurar que esté en la posición correcta */
 }
