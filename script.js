@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             shape: {
                 type: 'circle',
                 stroke: { width: 0, color: '#000000' },
-                polygon: { nb_sides: 5 }, // Forma de las partículas (puedes cambiar a 'edge' o 'triangle')
+                polygon: { nb_sides: 5 }, // Forma de las partículas
             },
             opacity: {
                 value: 0.7, // Aumenta la opacidad
@@ -141,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
 
     function changeBackgroundColor() {
+        // Cambia el color de fondo
         document.body.style.backgroundColor = colors[currentIndex];
         currentIndex = (currentIndex + 1) % colors.length; // Ciclar a través de los colores
     }
