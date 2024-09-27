@@ -189,16 +189,5 @@
 .animated-text {
     font-size: 2em; /* Ajusta el tamaño de la fuente según sea necesario */
     animation: colorChange 5s infinite; /* Cambia 5s a la duración que desees */
-    background: linear-gradient(135deg, #8e44ad, #3498db);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: backgroundChange 5s infinite; /* Anima el fondo también */
-}
-
-@keyframes backgroundChange {
-    0% { background: #8e44ad; }
-    25% { background: #3498db; }
-    50% { background: #e67e22; }
-    75% { background: #8e44ad; }
-    100% { background: #8e44ad; }
+    background: transparent; /* Asegúrate de que no haya un fondo alrededor del texto */
 }
