@@ -52,7 +52,6 @@ body {
     width: 320px;
     position: relative;
     z-index: 1;
-    overflow: hidden;
     animation: fadeIn 2s ease; /* Animación de aparición */
 }
 
