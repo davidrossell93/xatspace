@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(135deg, #8e44ad, #3498db);
+    background: linear-gradient(135deg, #8e44ad, #3498db); 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-    cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto;
+    cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
     overflow: hidden;
     position: relative;
 }
@@ -23,16 +23,17 @@ body {
 }
 
 .profile-container {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.95); /* Color blanco con transparencia */
     border-radius: 20px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    padding: 30px;
+    padding: 20px; /* Ajusta el padding si es necesario */
     text-align: center;
-    width: 400px; 
+    width: 350px; /* Ajusta el ancho del cuadrado blanco */
     position: relative;
     z-index: 1;
     overflow: hidden;
     animation: fadeIn 2s ease;
+    margin: 0 auto; /* Centrar el contenedor */
 }
 
 @keyframes fadeIn {
@@ -41,19 +42,21 @@ body {
 }
 
 .profile-container img {
-    border-radius: 50%;
-    width: 350px; /* Aumenta el tamaño de la imagen */
-    height: 350px; 
-    object-fit: cover;
-    border: 2px solid #007bff;
-    transition: transform 0.3s ease;
-    margin: 0 auto;
+    border-radius: 50%; /* Mantén el borde redondeado */
+    width: 100%; /* Asegúrate de que la imagen ocupe todo el ancho */
+    max-width: 350px; /* Tamaño máximo de la imagen */
+    height: auto; /* Mantener la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+    border: 2px solid #007bff; /* Color del borde azul */
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto; /* Centra la imagen */
     display: block;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    max-height: 350px; /* Ajusta la altura máxima si es necesario */
 }
 
 .profile-container img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1); 
 }
 
 .full-screen {
@@ -62,7 +65,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); 
     display: none;
     align-items: center;
     justify-content: center;
@@ -83,44 +86,27 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: #ff3b30;
+    background-color: #ff3b30; 
     color: white;
     border: none;
     border-radius: 50%;
-    padding: 10px 15px; /* Aumenta el tamaño del botón */
+    padding: 10px 15px;
     cursor: pointer;
     font-size: 1.5em;
-    transition: background-color 0.3s ease;
-    z-index: 1001;
+    transition: background-color 0.3s ease; 
+    z-index: 1001; 
 }
 
 .close-button:hover {
-    background-color: #ff1f20;
+    background-color: #ff1f20; 
 }
 
 h1 {
-    font-size: 2em;
-    color: #333;
+    font-size: 1.8em;
+    color: #333; 
 }
 
 p {
-    color: #555;
+    color: #555; 
     margin-top: 10px;
-}
-
-.icon-container {
-    display: flex;
-    justify-content: center; /* Centra los iconos */
-    margin-top: 20px;
-    gap: 30px; /* Espaciado entre iconos */
-}
-
-.icon {
-    font-size: 50px; /* Tamaño de los iconos */
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.icon:hover {
-    transform: scale(1.2);
 }
