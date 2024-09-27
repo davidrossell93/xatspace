@@ -23,12 +23,12 @@ body {
     50% { 
         background: linear-gradient(135deg, #2c3e50, #4ca1af); 
         --circle-border-color: #4ca1af; 
-        --text-color: #ffffff; /* Color para 50% */
+        --text-color: #ecf0f1; /* Color claro para 50% */
     }
     100% { 
         background: linear-gradient(135deg, #f39c12, #d35400); 
         --circle-border-color: #d35400; 
-        --text-color: #ffffff; /* Color para 100% */
+        --text-color: #2c3e50; /* Color oscuro para 100% */
     }
 }
 
