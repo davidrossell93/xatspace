@@ -53,16 +53,18 @@ body {
 
 @keyframes colorChange {
     0% {
-        background-position: 0%;
+        background: linear-gradient(135deg, #8e44ad, #3498db);
+    }
+    50% {
+        background: linear-gradient(135deg, #2980b9, #8e44ad);
     }
     100% {
-        background-position: 100%;
+        background: linear-gradient(135deg, #3498db, #8e44ad);
     }
 }
 
 .animated-text:hover {
     transform: scale(1.1); /* Escala al pasar el cursor */
-    color: #fff; /* Color blanco al hacer hover */
     text-shadow: 4px 4px 16px rgba(0, 0, 0, 0.6); /* Aumentar sombra al hacer hover */
 }
 
@@ -71,7 +73,7 @@ body {
     width: 320px;
     height: 320px;
     object-fit: contain;
-    border: 2px solid #007bff;
+    border: 2px solid transparent; /* Inicialmente transparente */
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
     margin: 0 auto;
     display: block;
@@ -85,7 +87,7 @@ body {
 }
 
 .profile-container img.clicked {
-    border: 2px solid #ffcc00; 
+    border: 2px solid transparent; /* Mantenerlo transparente */
     box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
 }
 
