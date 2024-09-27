@@ -11,16 +11,17 @@ body {
     cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
     overflow: hidden;
     position: relative;
-    animation: backgroundAnimate 15s infinite alternate;
+    animation: backgroundAnimate 15s infinite alternate; /* Added animation for background color change */
 }
 
-/* Animated background for a magical effect */
+/* Animation for background color change */
 @keyframes backgroundAnimate {
     0% { background: linear-gradient(135deg, #8e44ad, #3498db); }
     50% { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
     100% { background: linear-gradient(135deg, #f39c12, #d35400); }
 }
 
+/* Particle animation in the background */
 #particles-js {
     position: absolute;
     width: 100%;
@@ -28,45 +29,53 @@ body {
     top: 0;
     left: 0;
     z-index: 0;
-    opacity: 0.5;
 }
 
+/* Profile container styles */
 .profile-container {
     background-color: rgba(255, 255, 255, 0.95); 
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
     text-align: center;
-    width: 350px;
+    width: 320px;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    animation: fadeIn 1.5s ease;
-    backdrop-filter: blur(10px);
+    animation: fadeIn 2s ease;
 }
 
+/* Fade-in animation for the profile container */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Profile image styles */
 .profile-container img {
     border-radius: 50%;
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border: 3px solid #007bff;
+    width: 320px;
+    height: 320px;
+    object-fit: contain;
+    border: 2px solid #007bff;
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
     margin: 0 auto;
     display: block;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    left: -10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .profile-container img:hover {
-    transform: scale(1.1); 
-    border-color: #ffcc00;
+    transform: scale(1.05); 
 }
 
+.profile-container img.clicked {
+    border: 2px solid #ffcc00; 
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
+}
+
+/* Full-screen overlay styles */
 .full-screen {
     position: fixed;
     top: 0;
@@ -81,16 +90,18 @@ body {
     cursor: pointer;
 }
 
+/* Full-screen image styles */
 .full-screen img {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    border: 3px solid #007bff;
+    border: 2px solid #007bff;
     border-radius: 10px;
     transition: transform 0.3s ease;
     pointer-events: none;
 }
 
+/* Close button styles */
 .close-button {
     position: absolute;
     top: 20px;
@@ -110,20 +121,19 @@ body {
     background-color: #ff1f20; 
 }
 
+/* Heading styles */
 h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     color: #333; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Paragraph styles */
 p {
     color: #555; 
     margin-top: 10px;
-    font-size: 1.1em;
-    line-height: 1.5;
 }
 
-/* Floating icons */
+/* Floating icons animation */
 .icon-container {
     display: flex;
     justify-content: space-around;
@@ -131,29 +141,32 @@ p {
     animation: iconsFloat 3s infinite ease-in-out;
 }
 
+/* Icons floating animation */
 @keyframes iconsFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
+/* Icon styles */
 .icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     cursor: pointer;
-    font-size: 1.5em;
-    margin: 0 8px; 
+    font-size: 1.2em;
+    margin: 0 4px; 
 }
 
 .icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
+/* Specific icon styles */
 .icon-espana {
     background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
 }
@@ -162,20 +175,25 @@ p {
     background-color: #3498db;
     color: white;
     font-weight: bold;
+    font-size: 1.5em;
 }
 
 .icon-playstation {
     background-color: #1d1d1d;
     color: white;
+    font-size: 1.5em;
+    font-family: sans-serif;
 }
 
 .icon-gym {
     background-color: #e67e22; 
     color: white; 
+    font-size: 1.5em; 
     font-weight: bold; 
 }
 
 .icon-twitter {
     background-color: #1da1f2;
     color: white;
+    font-size: 1.5em;
 }
