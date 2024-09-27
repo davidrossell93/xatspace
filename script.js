@@ -95,4 +95,18 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         retina_detect: true
     });
+
+    // Agregar la función para cambiar el color del texto
+    const colors = ['#ffffff', '#ecf0f1', '#2c3e50']; // Colores a utilizar para el texto
+    let currentColorIndex = 0;
+    const textElement = document.querySelector('.animated-text');
+
+    // Cambiar color del texto
+    function changeTextColor() {
+        textElement.style.color = colors[currentColorIndex];
+        currentColorIndex = (currentColorIndex + 1) % colors.length; // Ciclar a través de los colores
+    }
+
+    // Cambiar color cada 5 segundos (ajusta según tu preferencia)
+    setInterval(changeTextColor, 5000); // Cambiar color cada 5 segundos
 });
