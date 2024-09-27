@@ -107,3 +107,20 @@ p {
     color: #555; 
     margin-top: 10px;
 }
+
+.icon-container {
+    display: flex;                     /* Usar flexbox para alinear los íconos */
+    justify-content: center;           /* Centrar los íconos en la línea */
+    margin-top: 20px;                 /* Espacio arriba de los íconos */
+    gap: 20px;                         /* Espacio entre íconos */
+}
+
+.icon {
+    font-size: 40px;                  /* Tamaño de fuente aumentado */
+    cursor: pointer;                  /* Cambiar cursor al pasar por encima */
+    transition: transform 0.2s;      /* Efecto de transición */
+}
+
+.icon:hover {
+    transform: scale(1.2);           /* Aumentar tamaño al pasar el mouse */
+}
