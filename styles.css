@@ -19,14 +19,17 @@ body {
     0% { 
         background: linear-gradient(135deg, #8e44ad, #3498db); 
         --circle-border-color: #007bff; /* Initial border color */
+        --text-color: #8e44ad; /* Initial text color */
     }
     50% { 
         background: linear-gradient(135deg, #2c3e50, #4ca1af); 
         --circle-border-color: #4ca1af; /* Color for 50% */
+        --text-color: #4ca1af; /* Color for 50% */
     }
     100% { 
         background: linear-gradient(135deg, #f39c12, #d35400); 
         --circle-border-color: #d35400; /* Color for 100% */
+        --text-color: #d35400; /* Color for 100% */
     }
 }
 
@@ -58,6 +61,34 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Styles for the name text */
+.animated-text {
+    font-size: 3em; /* Large font size */
+    background: linear-gradient(90deg, var(--text-color), var(--text-color)); /* Gradient color */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text color transparent */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Shadow for text */
+    animation: colorChange 15s infinite alternate; /* Animation for color change */
+    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+@keyframes colorChange {
+    0% {
+        background: linear-gradient(90deg, #8e44ad, #3498db);
+    }
+    50% {
+        background: linear-gradient(90deg, #2c3e50, #4ca1af);
+    }
+    100% {
+        background: linear-gradient(90deg, #f39c12, #d35400);
+    }
+}
+
+.animated-text:hover {
+    transform: scale(1.1); /* Scale up on hover */
+    text-shadow: 4px 4px 16px rgba(0, 0, 0, 0.6); /* Increase shadow on hover */
 }
 
 /* Profile image styles */
