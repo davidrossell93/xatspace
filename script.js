@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
         retina_detect: true
     });
 
-    // Agregar la función para cambiar el color del texto
-    const colors = ['#ffffff', '#ecf0f1', '#2c3e50']; // Colores a utilizar para el texto
+    // Cambiar color del texto "David Rossell"
+    const colors = ['#ffffff', '#ffcc00', '#3498db']; // Colores a utilizar
     let currentColorIndex = 0;
     const textElement = document.querySelector('.animated-text');
 
