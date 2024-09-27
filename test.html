@@ -4,190 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil David</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #8e44ad, #3498db);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            color: #fff;
-            cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Animación de partículas en el fondo */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        .profile-container {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            text-align: center;
-            width: 340px; /* Cambié el ancho para dar más espacio */
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            animation: fadeIn 1.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .profile-container img {
-            border-radius: 50%;
-            width: 100%; /* Ahora se adapta a su contenedor */
-            height: auto; /* Mantiene la proporción */
-            object-fit: cover;
-            border: 4px solid #007bff;
-            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-            margin: 0 auto;
-            display: block;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .profile-container img:hover {
-            transform: scale(1.1); /* Aumento al pasar el ratón */
-        }
-
-        h1 {
-            font-size: 1.8em; /* Aumenté el tamaño */
-            margin: 10px 0; /* Margen más claro */
-        }
-
-        p {
-            color: #555;
-            margin-top: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace a CSS externo -->
 </head>
 <body>
-        <audio id="autoplayAudio" autoplay loop style="display:none;">
-        <source src="https://raw.githubusercontent.com/davidrossell93/xatspace/main/eminem.mp3" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-    </audio>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var audio = document.getElementById("autoplayAudio");
-            var tryAutoPlay = function() {
-                audio.play().then(function() {
-                    console.log('Reproducción automática exitosa');
-                    removeInteractionEvents();
-                }).catch(function(error) {
-                    console.log('Reproducción automática bloqueada', error);
-                });
-            };
+<audio id="autoplayAudio" autoplay loop style="display:none;">
+  <source src="https://raw.githubusercontent.com/davidrossell93/xatspace/main/eminem.mp3" type="audio/mpeg">
+  Tu navegador no soporta la reproducción de audio.
+</audio>
 
-            // Intento inicial al cargar la página
-            tryAutoPlay();
+<!-- Contenedor de partículas -->
+<div id="particles-js"></div>
 
-            var addInteractionEvents = function() {
-                document.addEventListener('click', tryAutoPlay, true);
-                document.addEventListener('touchstart', tryAutoPlay, true);
-            };
+<!-- Contenedor del perfil -->
+<div class="profile-container" role="region" aria-label="Perfil de usuario">
+    <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
+    <h1>David Rossell</h1>
+    <p id="profileDesc">ID: xat1548951976</p>
 
-            var removeInteractionEvents = function() {
-                document.removeEventListener('click', tryAutoPlay, true);
-                document.removeEventListener('touchstart', tryAutoPlay, true);
-            };
-
-            addInteractionEvents();
-        });
-    </script>
-    
-    <!-- Animación de partículas en el fondo -->
-    <div id="particles-js"></div>
-        <div class="profile-container" role="region" aria-label="Perfil de usuario">
-        <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
-        <h1>David Rossell</h1>
-        <p id="profileDesc">ID: xat1548951976</p>
-        
-        <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
-            <button class="close-button" aria-label="Cerrar imagen ampliada">&times;</button>
-            <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
-        </div>
+    <!-- Imagen ampliada -->
+    <div id="fullScreenContainer" class="full-screen" role="dialog" aria-modal="true">
+        <button class="close-button" aria-label="Cerrar imagen ampliada">&times;</button>
+        <img id="fullScreenImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto Completa">
     </div>
+</div>
 
-    <!-- Contenedor de iconos -->
-    <div class="icon-container">
-        <div class="icon icon-espana" title="España"></div>
-        <div class="icon icon-piscis" title="Piscis">♓</div>
-        <div class="icon icon-playstation" title="Me gusta jugar">🎮</div>
-        <div class="icon icon-gym" title="Voy al gym">🏋️</div>
-        <div class="icon icon-twitter" title="Twitter">🐦</div>
-    </div>
+<!-- Contenedor de iconos -->
+<div class="icon-container">
+    <div class="icon icon-espana" title="España"></div>
+    <div class="icon icon-piscis" title="Piscis">♓</div>
+    <div class="icon icon-playstation" title="Me gusta jugar">🎮</div>
+    <div class="icon icon-gym" title="Voy al gym">🏋️</div>
+    <div class="icon icon-twitter" title="Twitter">🐦</div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        const profileImage = document.getElementById('profileImage');
-        const fullScreenContainer = document.getElementById('fullScreenContainer');
-        const closeButton = document.querySelector('.close-button');
-
-        profileImage.addEventListener('click', function() {
-            fullScreenContainer.style.display = 'flex'; 
-            profileImage.classList.toggle('clicked');
-            playClickSound();
-        });
-
-        function playClickSound() {
-            const clickSound = new Audio('https://raw.githubusercontent.com/davidrossell93/xatspace/main/ampliada.mp3');
-            clickSound.play();
-        }
-
-        closeButton.addEventListener('click', function() {
-            fullScreenContainer.style.display = 'none'; 
-            profileImage.classList.remove('clicked');
-        });
-
-        fullScreenContainer.addEventListener('click', function(event) {
-            if (event.target === fullScreenContainer) { 
-                fullScreenContainer.style.display = 'none'; 
-                profileImage.classList.remove('clicked'); 
-            }
-        });
-
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 } },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6, direction: 'none', out_mode: 'out' }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    onclick: { enable: true, mode: 'push' },
-                    resize: true
-                },
-                modes: {
-                    grab: { distance: 400, line_linked: { opacity: 1 } },
-                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-                    repulse: { distance: 200, duration: 0.4 },
-                    push: { particles_nb: 4 },
-                    remove: { particles_nb: 2 }
-                }
-            },
-            retina_detect: true
-        });
-    </script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="script.js"></script> <!-- Enlace a JavaScript externo -->
 </body>
 </html>
