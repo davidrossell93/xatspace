@@ -26,9 +26,9 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    padding: 10px; /* Reducir el padding */
+    padding: 10px; /* Reduce el padding */
     text-align: center;
-    width: 300px; /* Reduce el ancho del cuadrado blanco */
+    width: 280px; /* Reduce el ancho del cuadrado blanco */
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -43,7 +43,7 @@ body {
 
 .profile-container img {
     border-radius: 50%; /* Mantiene el borde redondeado */
-    width: 120%; /* Aumentar el tamaño de la imagen dentro del círculo */
+    width: 130%; /* Aumentar el tamaño de la imagen dentro del círculo */
     max-width: none; /* Asegurarse de que no limite el tamaño máximo */
     height: auto; /* Dejar que la altura se ajuste automáticamente */
     object-fit: cover; /* Mantener el recorte de la imagen */
