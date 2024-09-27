@@ -1,17 +1,18 @@
-  body {
-            background: linear-gradient(135deg, #8e44ad, #3498db); 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            color: #fff;
-            cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
-            overflow: hidden;
-            position: relative;
-        }
+body {
+    /* Cambiar a un color sólido inicial */
+    background-color: #8e44ad; /* Un color inicial */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
+    overflow: hidden;
+    position: relative;
+}
 
         /* Animación de partículas en el fondo */
         #particles-js {
