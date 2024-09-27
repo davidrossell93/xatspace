@@ -27,23 +27,21 @@ body {
 /* Estilo de texto mejorado */
 h1 {
     font-size: 3em; /* Tamaño de fuente mayor */
-    color: #ffffff;
+    color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
     letter-spacing: 2px; /* Espaciado entre letras */
-    animation: colorChange 10s infinite; /* Sincronizar con el fondo */
+    animation: colorChange 10s linear infinite; /* Sincronizar con el fondo */
 }
 
 /* Animación de color de texto */
 @keyframes colorChange {
-    0% { color: #ffffff; }
-    20% { color: #3498db; }
-    40% { color: #e67e22; }
-    60% { color: #8e44ad; }
-    80% { color: #3498db; }
-    100% { color: #ffffff; }
+    0% { color: #8e44ad; }
+    25% { color: #3498db; }
+    50% { color: #e67e22; }
+    75% { color: #3498db; }
+    100% { color: #8e44ad; }
 }
 
-/* Otros estilos permanecen sin cambios */
 .profile-container {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
