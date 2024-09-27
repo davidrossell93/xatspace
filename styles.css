@@ -1,0 +1,109 @@
+body {
+    background: linear-gradient(135deg, #8e44ad, #3498db); 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
+    overflow: hidden;
+    position: relative;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.95); 
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    width: 340px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-container img {
+    border-radius: 50%;
+    width: 340px;
+    height: 340px;
+    object-fit: cover;
+    border: 2px solid #007bff;
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.profile-container img:hover {
+    transform: scale(1.1); 
+}
+
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.full-screen img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff3b30; 
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: background-color 0.3s ease; 
+    z-index: 1001; 
+}
+
+.close-button:hover {
+    background-color: #ff1f20; 
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #333; 
+}
+
+p {
+    color: #555; 
+    margin-top: 10px;
+}
