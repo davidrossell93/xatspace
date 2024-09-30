@@ -91,48 +91,56 @@ body {
             box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
         }
 
-        .full-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); 
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            cursor: pointer;
-        }
+/* Estilo para la imagen en pantalla completa (ampliada) */
+.full-screen img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover; /* Esto asegura que la imagen no se distorsione */
+    border-radius: 25px; /* Bordes más redondeados para un aspecto suave */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Sombras suaves para darle profundidad */
+    transition: transform 0.3s ease, border-radius 0.3s ease; /* Animación suave para la transición */
+    pointer-events: none; /* Evita la interacción con la imagen ampliada */
+}
 
-        .full-screen img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            pointer-events: none;
-        }
+/* Opcionalmente, puedes agregar una pequeña animación de zoom al mostrar la imagen */
+.full-screen img:hover {
+    transform: scale(1.03); /* Hace un ligero zoom al pasar el ratón */
+}
 
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #ff3b30; 
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: background-color 0.3s ease; 
-            z-index: 1001; 
-        }
+/* Contenedor de la imagen ampliada (pantalla completa) */
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro y opaco para destacar la imagen */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+}
 
-        .close-button:hover {
-            background-color: #ff1f20; 
-        }
+/* Botón para cerrar */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+}
+
+.close-button:hover {
+    background-color: #ff1f20;
+}
 
         h1 {
             font-size: 1.5em;
