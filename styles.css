@@ -13,7 +13,14 @@ body {
     overflow: hidden;
     position: relative;
 }
-
+/* Estilo para el mensaje "Toca para ampliar la imagen" */
+.click-to-enlarge {
+    font-size: 0.85em; /* Tamaño más pequeño que el texto principal */
+    color: #777; /* Color gris suave para que no sea dominante */
+    margin-top: 5px; /* Un pequeño margen para separar del contenido superior */
+    font-style: italic; /* Cursiva para un toque de estilo */
+    text-align: center; /* Centrado */
+}
         /* Animación de partículas en el fondo */
         #particles-js {
             position: absolute;
