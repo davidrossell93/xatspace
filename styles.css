@@ -236,10 +236,15 @@ p {
 }
 
 .icon-playstation {
-    background-color: #1d1d1d;
-    color: white;
-    font-size: 1.5em;
-    font-family: sans-serif;
+    background: none; /* Quitar fondo */
+    display: flex; /* Alineación del icono */
+    align-items: center; 
+    justify-content: center;
+}
+
+.icon-playstation img {
+    width: 50px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción */
 }
 
 .icon-gym {
