@@ -13,35 +13,32 @@ body {
     overflow: hidden;
     position: relative;
 }
-/* Estilo para el contenedor de la imagen */
+/* Contenedor para la imagen y tooltip */
 .image-container {
-    position: relative; /* Necesario para posicionar el tooltip de manera flotante */
+    position: relative; /* Necesario para que el tooltip esté posicionado en relación a la imagen */
     display: inline-block;
-    width: 320px;
-    height: 320px;
 }
 
 /* Estilo para el tooltip flotante */
 .tooltip {
     position: absolute;
-    top: 50%; /* Centrado verticalmente */
+    bottom: 10px; /* Justo debajo de la imagen */
     left: 50%; /* Centrado horizontalmente */
-    transform: translate(-50%, -150%); /* Ajuste preciso de la posición */
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-    color: #fff; /* Color de texto blanco */
-    padding: 8px 12px; /* Espacio interno */
-    border-radius: 8px; /* Bordes redondeados para suavizar */
-    font-size: 0.85em; /* Tamaño más pequeño y discreto */
+    transform: translateX(-50%); /* Centra el tooltip perfectamente */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    color: white; /* Texto blanco para contraste */
+    padding: 5px 10px; /* Espaciado interno del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 0.8em; /* Tamaño de fuente pequeño y discreto */
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
     opacity: 0; /* Inicialmente invisible */
-    transition: opacity 0.3s ease-in-out; /* Suaviza la transición */
-    pointer-events: none; /* El tooltip no interferirá con el puntero */
-    z-index: 10;
+    transition: opacity 0.3s ease-in-out; /* Suaviza la aparición */
+    pointer-events: none; /* El tooltip no bloqueará los clics */
 }
 
-/* Efecto de hover en la imagen para mostrar el tooltip */
+/* Muestra el tooltip al hacer hover en la imagen */
 .image-container:hover .tooltip {
-    opacity: 1; /* Se hace visible al pasar el cursor */
+    opacity: 1; /* Hace que el tooltip sea visible */
 }
         /* Animación de partículas en el fondo */
         #particles-js {
