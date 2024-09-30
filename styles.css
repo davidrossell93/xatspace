@@ -118,31 +118,31 @@ body {
     transition: transform 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
     pointer-events: none; /* Evita interacción */
 
-    /* Bordes dorados con animación parpadeante */
+    /* Bordes blancos con animación parpadeante */
     border: 5px solid transparent; /* Borde inicialmente transparente */
     background: linear-gradient(white, white), 
-                linear-gradient(45deg, #FFD700, #FFDF00); /* Gradiente dorado */
+                linear-gradient(45deg, #ffffff, #f0f0f0); /* Gradiente blanco */
     background-origin: border-box;
     background-clip: content-box, border-box; /* Ajusta el borde */
     animation: borderGlow 2s infinite; /* Animación de parpadeo */
 }
 
-/* Animación de parpadeo del borde dorado */
+/* Animación de parpadeo del borde blanco */
 @keyframes borderGlow {
     0% {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 
-                    0 0 30px rgba(255, 223, 0, 0.4), 
-                    0 0 45px rgba(255, 223, 0, 0.2);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 
+                    0 0 30px rgba(255, 255, 255, 0.4), 
+                    0 0 45px rgba(255, 255, 255, 0.2);
     }
     50% {
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 
-                    0 0 40px rgba(255, 223, 0, 0.6), 
-                    0 0 60px rgba(255, 223, 0, 0.3);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 
+                    0 0 40px rgba(255, 255, 255, 0.6), 
+                    0 0 60px rgba(255, 255, 255, 0.3);
     }
     100% {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 
-                    0 0 30px rgba(255, 223, 0, 0.4), 
-                    0 0 45px rgba(255, 223, 0, 0.2);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 
+                    0 0 30px rgba(255, 255, 255, 0.4), 
+                    0 0 45px rgba(255, 255, 255, 0.2);
     }
 }
 
