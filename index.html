@@ -17,16 +17,19 @@
 <div id="particles-js"></div>
 
 <!-- Contenedor del perfil -->
-    <div class="profile-container" role="region" aria-label="Perfil de usuario">
+<div class="profile-container" role="region" aria-label="Perfil de usuario">
+    <div class="image-container"> <!-- Nueva clase para el contenedor de la imagen -->
         <img id="profileImage" src="https://xatimg.com/image/9yQ3tlf8wtqx.jpg" alt="Mi Foto" aria-describedby="profileDesc">
-        <h1>David Rossell</h1>
-        <p id="profileDesc">ID: xat1548951976</p>
+        <div class="tooltip">Toca para ampliar</div> <!-- Tooltip para la ampliación -->
+    </div>
+    <h1>David Rossell</h1>
+    <p id="profileDesc">ID: xat1548951976</p>
 </div>
 
 <!-- Imagen ampliada -->
 <div id="fullScreenContainer" class="full-screen">
     <div id="particles-fullscreen"></div> <!-- Contenedor de partículas para pantalla completa -->
-    <img id="profileImage" src="https://xatimg.com/image/qXeV7xGxuh8V.jpg" alt="Perfil">
+    <img id="profileImageLarge" src="https://xatimg.com/image/qXeV7xGxuh8V.jpg" alt="Perfil">
     <button class="close-button">✖</button>
 </div>
 
@@ -43,4 +46,3 @@
 <script src="script.js"></script> <!-- Enlace a JavaScript externo -->
 </body>
 </html>
-
