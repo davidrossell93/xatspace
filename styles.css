@@ -23,23 +23,29 @@ body {
 /* Estilo para el tooltip flotante */
 .tooltip {
     position: absolute;
-    bottom: 10px; /* Justo debajo de la imagen */
+    top: 50%; /* Centrado verticalmente */
     left: 50%; /* Centrado horizontalmente */
-    transform: translateX(-50%); /* Centra el tooltip perfectamente */
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    transform: translate(-50%, -50%); /* Centra el tooltip perfectamente */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
     color: white; /* Texto blanco para contraste */
-    padding: 5px 10px; /* Espaciado interno del texto */
+    padding: 10px; /* Espaciado interno del texto */
     border-radius: 5px; /* Bordes redondeados */
-    font-size: 0.8em; /* Tamaño de fuente pequeño y discreto */
+    font-size: 1em; /* Tamaño de fuente más grande */
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
     opacity: 0; /* Inicialmente invisible */
     transition: opacity 0.3s ease-in-out; /* Suaviza la aparición */
     pointer-events: none; /* El tooltip no bloqueará los clics */
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
 }
 
 /* Muestra el tooltip al hacer hover en la imagen */
 .image-container:hover .tooltip {
     opacity: 1; /* Hace que el tooltip sea visible */
+}
+
+/* Muestra el tooltip al hacer clic en la imagen */
+.image-container:focus-within .tooltip {
+    opacity: 1; /* Hace que el tooltip sea visible al hacer clic */
 }
 
 /* Animación de partículas en el fondo */
