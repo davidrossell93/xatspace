@@ -13,6 +13,7 @@ body {
     overflow: hidden;
     position: relative;
 }
+
 /* Contenedor para la imagen y tooltip */
 .image-container {
     position: relative; /* Necesario para que el tooltip esté posicionado en relación a la imagen */
@@ -40,74 +41,83 @@ body {
 .image-container:hover .tooltip {
     opacity: 1; /* Hace que el tooltip sea visible */
 }
-        /* Animación de partículas en el fondo */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
 
-        .profile-container {
-            background-color: rgba(255, 255, 255, 0.95); 
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            text-align: center;
-            width: 320px;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            animation: fadeIn 2s ease;
-        }
+/* Animación de partículas en el fondo */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.95); 
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 320px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    animation: fadeIn 2s ease;
+}
 
-        .profile-container img {
-            border-radius: 50%;
-            width: 320px;
-            height: 320px;
-            object-fit: contain;
-            border: 2px solid #007bff;
-            transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
-            margin: 0 auto;
-            display: block;
-            position: relative;
-            left: -10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .profile-container img:hover {
-            transform: scale(1.05); 
-        }
+.profile-container img {
+    border-radius: 50%;
+    width: 320px;
+    height: 320px;
+    object-fit: contain;
+    border: 2px solid #007bff;
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    left: -10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
-        .profile-container img.clicked {
-            border: 2px solid #ffcc00; 
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
-        }
+.profile-container img:hover {
+    transform: scale(1.05); 
+}
+
+.profile-container img.clicked {
+    border: 2px solid #ffcc00; 
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.7); 
+}
 
 /* Estilo para la imagen en pantalla completa (ampliada) */
-.full-screen img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: cover; /* Esto asegura que la imagen no se distorsione */
-    border-radius: 25px; /* Bordes más redondeados para un aspecto suave */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Sombras suaves para darle profundidad */
-    transition: transform 0.3s ease, border-radius 0.3s ease; /* Animación suave para la transición */
-    pointer-events: none; /* Evita la interacción con la imagen ampliada */
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
 }
 
-/* Opcionalmente, puedes agregar una pequeña animación de zoom al mostrar la imagen */
-.full-screen img:hover {
-    transform: scale(1.03); /* Hace un ligero zoom al pasar el ratón */
+/* Contenedor de las partículas en pantalla completa */
+#particles-fullscreen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Asegúrate de que esté detrás de la imagen */
 }
 
-/* Contenedor de la imagen ampliada (pantalla completa) */
 /* Estilo para la imagen en pantalla completa (ampliada) */
 .full-screen img {
     max-width: 90%;
@@ -151,21 +161,6 @@ body {
     transform: scale(1.03); /* Zoom suave */
 }
 
-/* Contenedor de la imagen ampliada (pantalla completa) */
-.full-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro */
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    cursor: pointer;
-}
-
 /* Botón de cerrar imagen ampliada */
 .close-button {
     position: absolute;
@@ -185,74 +180,85 @@ body {
 .close-button:hover {
     background-color: #ff1f20;
 }
-        h1 {
-            font-size: 1.5em;
-            color: #333; 
-        }
 
-        p {
-            color: #555; 
-            margin-top: 10px;
-        }
+h1 {
+    font-size: 1.5em;
+    color: #333; 
+}
 
-        /* Animación de iconos flotando */
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            animation: iconsFloat 3s infinite ease-in-out;
-        }
+p {
+    color: #555; 
+    margin-top: 10px;
+}
 
-        @keyframes iconsFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+/* Animación de iconos flotando */
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    animation: iconsFloat 3s infinite ease-in-out;
+}
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            font-size: 1.2em;
-            margin: 0 4px; 
-        }
+@keyframes iconsFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
-        .icon:hover {
-            transform: scale(1.1);
-        }
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin: 0 4px; 
+}
 
-        .icon-espana {
-            background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
-        }
+.icon:hover {
+    transform: scale(1.1);
+}
 
-        .icon-piscis {
-            background-color: #3498db;
-            color: white;
-            font-weight: bold;
-            font-size: 1.5em;
-        }
+.icon-espana {
+    background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
+}
 
-        .icon-playstation {
-            background-color: #1d1d1d;
-            color: white;
-            font-size: 1.5em;
-            font-family: sans-serif;
-        }
+.icon-piscis {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
 
-        .icon-gym {
-            background-color: #e67e22; 
-            color: white; 
-            font-size: 1.5em; 
-            font-weight: bold; 
-        }
+.icon-playstation {
+    background-color: #1d1d1d;
+    color: white;
+    font-size: 1.5em;
+    font-family: sans-serif;
+}
 
-        .icon-twitter {
-            background-color: #1da1f2;
-            color: white;
-            font-size: 1.5em;
-        }
+.icon-gym {
+    background-color: #e67e22; 
+    color: white; 
+    font-size: 1.5em; 
+    font-weight: bold; 
+}
+
+.icon-twitter {
+    background-color: #1da1f2;
+    color: white;
+    font-size: 1.5em;
+}
+
+/* Asegúrate de incluir este bloque de partículas en el contenedor de imagen ampliada */
+.full-screen #particles-fullscreen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Asegúrate de que esté detrás de la imagen */
+}
