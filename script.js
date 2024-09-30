@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
         fullScreenContainer.style.display = 'flex'; 
         profileImage.classList.toggle('clicked');
         playClickSound(); 
+        // Inicializa partículas para la imagen ampliada
+        initFullScreenParticles();
     });
 
     function playClickSound() {
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Configuración de partículas
+    // Configuración de partículas para el fondo principal
     particlesJS('particles-js', {
         particles: {
             number: {
@@ -95,6 +97,52 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         retina_detect: true
     });
+
+    // Inicializa partículas para la imagen ampliada
+    function initFullScreenParticles() {
+        particlesJS('particles-fullscreen', {
+            particles: {
+                number: {
+                    value: 150,
+                    density: { enable: true, value_area: 800 }
+                },
+                color: { value: '#ffffff' },
+                shape: {
+                    type: 'circle',
+                    stroke: { width: 0, color: '#000000' }
+                },
+                opacity: {
+                    value: 0.7,
+                    random: false,
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    }
 
     // Función para interpolar entre dos colores
     function interpolateColor(color1, color2, factor) {
