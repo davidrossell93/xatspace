@@ -9,7 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewport="0 0 10 10" style="fill:red;"><circle cx="20" cy="20" r="10"/></svg>') 0 0, auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewport="0 0 10 10" style="fill:white;"><circle cx="20" cy="20" r="10"/></svg>') 0 0, auto;
     overflow: hidden;
     position: relative;
 }
