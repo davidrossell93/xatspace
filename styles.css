@@ -9,7 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-    cursor: url('https://raw.githubusercontent.com/davidrossell93/xatspace/main/cursor.png'), auto;
+    cursor: url('https://raw.githubusercontent.com/davidrossell93/xatspace/main/cursor.png'), pointer;
     overflow: hidden;
     position: relative;
 }
