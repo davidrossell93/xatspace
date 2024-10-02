@@ -9,7 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="fill:green;"><path d="M10.6,-12.3c0,7.9,6.4,14.3,14.3,14.3c0,0,3-1.9,3,2c0,0,0,2,2,2s2,0,2-2s0-2,3-2c7.9,0,14.3-6.4,14.3-14.3c0-7.9-6.4-14.3-14.3-14.3S10.6,-20.2,10.6,-12.3"/></svg>') 0 0, auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="fill:green;"><path d="M10.6,-12.3c0,7.9,6.4,14.3,14.3,14.3c0,0,3-1.9,3,2c0,0,0,2,2,2s2,0,2-2s0-2,3-2c7.9,0,14.3-6.4,14.3-14.3c0-7.9-6.4-14.3-14.3-14.3S10.6,-20.2,10.6,-12.3"/></svg>') 0 0, auto;
     overflow: hidden;
     position: relative;
 }
