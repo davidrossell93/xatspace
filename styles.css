@@ -165,8 +165,8 @@ cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" wid
 /* Botón de cerrar imagen ampliada */
 .close-button {
     position: absolute;
-    top: 40px; /* Puedes ajustar este valor según la altura que desees */
-    right: 120px; /* Movido más a la izquierda */
+    top: 50px; /* Puedes ajustar este valor según la altura que desees */
+    right: 220px; /* Movido más a la izquierda */
     background-color: #ff3b30;
     color: white;
     border: none;
