@@ -105,9 +105,9 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
-    cursor: inherit;
+/* cursor: inherit; */
 
 /* Contenedor de las partículas en pantalla completa */
 #particles-fullscreen {
@@ -270,7 +270,6 @@ p {
     left: 0;
     z-index: 0; /* Asegúrate de que esté detrás de la imagen */
 } 
-
 
 
 
