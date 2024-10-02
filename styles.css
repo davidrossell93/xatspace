@@ -9,8 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewport="0 0 30 30" style="fill:white;"><circle cx="20" cy="20" r="10"/></svg>') 0 0, auto;
-    overflow: hidden;
+cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 40 40" style="fill:none;stroke:white;stroke-width:2;"><polygon points="20,0 40,20 20,40 0,20" fill="white" opacity="0.8"/><polygon points="20,5 35,20 20,35 5,20" fill="none" stroke="white" stroke-width="2"/></svg>') 20 20, auto;    overflow: hidden;
     position: relative;
 }
 
