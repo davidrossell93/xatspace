@@ -9,7 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-    cursor: url('https://www.clipartmax.com/png/small/252-2528938_mouse-cursor-sword.png'), auto; 
+    cursor: url('cursor.png'), auto;
     overflow: hidden;
     position: relative;
 }
@@ -270,53 +270,3 @@ p {
     z-index: 0; /* Asegúrate de que esté detrás de la imagen */
 } 
 
-
-.icon:hover {
-    transform: scale(1.1);
-}
-
-.icon-espana {
-    background: radial-gradient(circle at 50%, #c60b1e 33%, #ffc400 33%);
-}
-
-.icon-piscis {
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.icon-playstation {
-    background: none; /* Quitar fondo */
-    display: flex; /* Alineación del icono */
-    align-items: center; 
-    justify-content: center;
-}
-
-.icon-playstation img {
-    width: 50px; /* Ajusta el tamaño según tus necesidades */
-    height: auto; /* Mantiene la proporción */
-}
-
-.icon-gym {
-    background-color: #e67e22; 
-    color: white; 
-    font-size: 1.5em; 
-    font-weight: bold; 
-}
-
-.icon-twitter {
-    background-color: #1da1f2;
-    color: white;
-    font-size: 1.5em;
-}
-
-/* Asegúrate de incluir este bloque de partículas en el contenedor de imagen ampliada */
-.full-screen #particles-fullscreen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0; /* Asegúrate de que esté detrás de la imagen */
-} 
