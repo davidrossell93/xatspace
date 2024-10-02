@@ -9,7 +9,19 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewport="0 0 30 40" style="fill:none;stroke:white;stroke-width:2;"><polygon points="0,0 25,20 15,20 20,40 10,30 5,35" fill="white" opacity="0.9" stroke="black" stroke-width="1"/></svg>') 0 0, auto;    position: relative;
+/* Cursor personalizado en forma de flecha con brillo */
+.cursor-glow {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewport="0 0 30 40" style="fill:none;stroke:white;stroke-width:2;"><polygon points="0,0 25,20 15,20 20,40 10,30 5,35" fill="white" opacity="0.9" stroke="black" stroke-width="1"/></svg>') 0 0, auto;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+    }
 }
 
 /* Contenedor para la imagen y tooltip */
