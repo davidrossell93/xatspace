@@ -9,7 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     color: #fff;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewport="0 0 30 30" style="fill:black;"><circle cx="15" cy="15" r="10"/></svg>') 0 0, auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewport="0 0 30 30" style="fill:green;"><circle cx="15" cy="15" r="10"/></svg>') 0 0, auto;
     overflow: hidden;
     position: relative;
 }
@@ -107,6 +107,7 @@ body {
     z-index: 1000;
     cursor: pointer;
 }
+    cursor: inherit;
 
 /* Contenedor de las partículas en pantalla completa */
 #particles-fullscreen {
@@ -269,6 +270,15 @@ p {
     left: 0;
     z-index: 0; /* Asegúrate de que esté detrás de la imagen */
 } 
+
+
+
+
+
+
+
+
+
 
 
 
