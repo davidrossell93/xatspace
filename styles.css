@@ -28,7 +28,7 @@ cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" wid
     background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
     color: white; /* Texto blanco para contraste */
     padding: 5px 10px; /* Espaciado interno del texto */
-
+    border-radius: 5px; /* Bordes redondeados */
     font-size: 0.8em; /* Tamaño de fuente pequeño y discreto */
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
     opacity: 0; /* Inicialmente invisible */
@@ -269,5 +269,15 @@ p {
     left: 0;
     z-index: 0; /* Asegúrate de que esté detrás de la imagen */
 } 
+
+
+
+
+
+
+
+
+
+
 
 
