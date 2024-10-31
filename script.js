@@ -153,34 +153,62 @@ document.addEventListener('DOMContentLoaded', function() {
         return `rgb(${result[0]}, ${result[1]}, ${result[2]})`;
     }
 
-    // Función para cambiar el fondo de color
-    let colors = [
-        [142, 68, 173], // #8e44ad
-        [52, 152, 219], // #3498db
-        [230, 126, 34], // #e67e22
-        [29, 161, 242], // #1da1f2
-        [255, 59, 48]   // #ff3b30
-    ];
+// Cambiar los colores a tonos oscuros y siniestros
+let colors = [
+    [10, 10, 10],     // Negro oscuro
+    [55, 0, 0],       // Rojo oscuro
+    [34, 34, 34],     // Gris oscuro
+    [102, 0, 0],      // Burdeos profundo
+    [30, 0, 0]        // Marrón muy oscuro
+];
 
-    let currentIndex = 0;
+particlesJS('particles-js', {
+    particles: {
+        number: { value: 100, density: { enable: true, value_area: 700 } },
+        color: { value: '#660000' }, // Rojo oscuro
+        shape: {
+            type: 'circle',
+            stroke: { width: 0, color: '#000000' }
+        },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+            enable: true,
+            distance: 180,
+            color: '#550000', // Enlace rojo oscuro
+            opacity: 0.6,
+            width: 1
+        },
+        move: { enable: true, speed: 2, direction: 'none' }
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' },
+            resize: true
+        }
+    },
+    retina_detect: true
+});
 
-    function changeBackgroundColor() {
-        const nextIndex = (currentIndex + 1) % colors.length;
-        let step = 0;
-        const steps = 100; // número de pasos para la interpolación
+function changeBackgroundColor() {
+    const nextIndex = (currentIndex + 1) % colors.length;
+    let step = 0;
+    const steps = 100;
 
-        const interval = setInterval(() => {
-            const color = interpolateColor(colors[currentIndex], colors[nextIndex], step / steps);
-            document.body.style.backgroundColor = color;
-            step++;
+    const interval = setInterval(() => {
+        const color = interpolateColor(colors[currentIndex], colors[nextIndex], step / steps);
+        document.body.style.backgroundColor = color;
+        step++;
 
-            if (step > steps) {
-                clearInterval(interval);
-                currentIndex = nextIndex; // Avanza al siguiente color
-            }
-        }, 20); // Cambiar color cada 20 ms
-    }
+        if (step > steps) {
+            clearInterval(interval);
+            currentIndex = nextIndex;
+        }
+    }, 20);
+}
 
-    // Cambia el fondo cada 5 segundos
-    setInterval(changeBackgroundColor, 5000);
+// Cambia el fondo cada 7 segundos
+setInterval(changeBackgroundColor, 7000);
 });
