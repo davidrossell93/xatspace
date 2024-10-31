@@ -17,15 +17,15 @@ body {
     display: inline-block;
 }
 
-/* Contenedor principal con estilos mejorados */
+/* Contenedor del perfil */
 .profile-container {
     background-color: rgba(255, 255, 255, 0.95); 
-    border-radius: 50%; /* Convertir a círculo */
+    border-radius: 50%; /* Hacer el contenedor circular */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     padding: 10px;
     text-align: center;
-    width: 320px;
-    height: 320px; /* Altura igual a la anchura para asegurar forma circular */
+    width: 300px; /* Tamaño uniforme para asegurar que sea un círculo */
+    height: 300px; /* Igual que el ancho */
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -35,13 +35,13 @@ body {
     animation: fadeIn 2s ease;
 }
 
+/* Imagen dentro del contenedor circular */
 .profile-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que ocupe todo el círculo sin dejar bordes */
-    border-radius: 50%; /* Mantener el borde redondeado */
+    width: 100%; /* La imagen ocupa todo el contenedor */
+    height: 100%; 
+    object-fit: cover; /* Ajusta la imagen al círculo sin distorsión */
+    border-radius: 50%; /* Bordes redondeados */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: block;
 }
 
 .profile-container img:hover {
