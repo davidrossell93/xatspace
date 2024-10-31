@@ -1,15 +1,6 @@
 
 body {
-    background-color: #8e44ad; /* Un color inicial */
-    transition: background-color 2s ease; /* Suaviza la transición del color */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    color: #fff;
+
 cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewport="0 0 30 40" style="fill:none;stroke:white;stroke-width:2;"><polygon points="0,0 25,20 15,20 20,40 10,30 5,35" fill="white" opacity="0.9" stroke="black" stroke-width="1"/></svg>') 0 0, auto;
 }
 
