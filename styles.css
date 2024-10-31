@@ -52,9 +52,9 @@ body {
 }
 
 .profile-container {
-    background-color: rgba(10, 10, 10, 0.9); /* Fondo muy oscuro */
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(200, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.6); /* Sombra roja */
+    background-color: rgba(10, 10, 10, 0.9);
+    border-radius: 8px;
+    box-shadow: -10px 10px 15px rgba(200, 0, 0, 0.4), 5px -5px 10px rgba(255, 0, 0, 0.5);
     padding: 20px;
     text-align: center;
     width: 320px;
@@ -65,6 +65,9 @@ body {
     background-image: radial-gradient(circle at top left, rgba(100, 0, 0, 0.2), transparent),
                       radial-gradient(circle at bottom right, rgba(100, 0, 0, 0.2), transparent);
     background-blend-mode: overlay;
+    clip-path: polygon(5% 5%, 95% 3%, 97% 97%, 3% 95%); /* Contorno irregular */
+    border: 2px solid rgba(255, 0, 0, 0.4);
+    animation: bloodPulse 3s infinite;
 }
 
 /* Puedes añadir un parpadeo suave para el fondo "sangriento" */
@@ -83,19 +86,22 @@ body {
 }
 
 .profile-container img {
-    width: 100%; /* Ajusta para ocupar todo el contenedor */
+    width: 100%;
     height: auto;
     object-fit: cover;
-    border: 3px solid transparent; /* Borde transparente para usar el degradado como borde */
+    border-radius: 5%;
     margin: 0 auto;
     display: block;
     position: relative;
-    left: 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(100, 0, 0, 0.8); /* Sombra oscura */
-    border-radius: 5px; /* Borde ligeramente redondeado */
-    background-image: radial-gradient(circle, rgba(153, 0, 0, 0.6), transparent 70%);
-    background-origin: border-box;
-    padding: 10px;
+    box-shadow: -7px 7px 15px rgba(0, 0, 0, 0.7), -10px 10px 20px rgba(100, 0, 0, 0.8);
+    border: 2px solid transparent;
+    padding: 5px;
+    clip-path: polygon(5% 5%, 90% 10%, 95% 90%, 10% 85%); /* Contorno irregular en la imagen */
+}
+/* Agrega parpadeo y vibración a la imagen */
+@keyframes flicker {
+    0%, 100% { opacity: 0.9; transform: rotate(-0.5deg); }
+    50% { opacity: 1; transform: rotate(0.5deg); }
 }
 
 .profile-container img::before {
