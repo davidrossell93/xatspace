@@ -52,9 +52,9 @@ cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" wid
 }
 
 .profile-container {
-    background-color: rgba(255, 255, 255, 0.95); 
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro semitransparente */
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3), 0 0 30px rgba(255, 0, 0, 0.5); /* Sombra roja para el efecto sangriento */
     padding: 20px;
     text-align: center;
     width: 320px;
@@ -62,6 +62,19 @@ cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" wid
     z-index: 1;
     overflow: hidden;
     animation: fadeIn 2s ease;
+    background-image: radial-gradient(circle at top left, rgba(255, 0, 0, 0.2), transparent),
+                      radial-gradient(circle at bottom right, rgba(255, 0, 0, 0.2), transparent);
+    background-blend-mode: overlay; /* Mezcla los efectos con el fondo */
+}
+
+/* Puedes añadir un parpadeo suave para el fondo "sangriento" */
+@keyframes bloodPulse {
+    0%, 100% { box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3), 0 0 30px rgba(255, 0, 0, 0.5); }
+    50% { box-shadow: 0 12px 30px rgba(255, 0, 0, 0.6), 0 0 45px rgba(255, 0, 0, 0.7); }
+}
+
+.profile-container {
+    animation: bloodPulse 3s infinite;
 }
 
 @keyframes fadeIn {
