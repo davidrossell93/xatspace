@@ -84,21 +84,40 @@ body {
 
 .profile-container img {
     width: 100%; /* Ajusta para ocupar todo el contenedor */
-    height: auto; /* Permite que mantenga la proporción */
+    height: auto;
     object-fit: cover;
-    border: 3px solid rgba(153, 0, 0, 0.9); /* Borde rojo oscuro */
-    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent; /* Borde transparente para usar el degradado como borde */
     margin: 0 auto;
     display: block;
     position: relative;
-    left: 0; /* Centra la imagen */
-    box-shadow: 0 0 15px rgba(102, 0, 0, 0.5), 0 0 30px rgba(51, 0, 0, 0.8); /* Sombra oscura y sangrienta */
-    border-radius: 0; /* Quita el borde redondeado para una apariencia más cruda */
+    left: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(100, 0, 0, 0.8); /* Sombra oscura */
+    border-radius: 5px; /* Borde ligeramente redondeado */
+    background-image: radial-gradient(circle, rgba(153, 0, 0, 0.6), transparent 70%);
+    background-origin: border-box;
+    padding: 10px;
 }
 
-.profile-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(153, 0, 0, 0.9); /* Sombra agresiva roja */
+.profile-container img::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    border: 3px solid rgba(153, 0, 0, 0.7); /* Borde rojo oscuro */
+    box-shadow: 0 0 15px rgba(153, 0, 0, 0.8), 0 0 30px rgba(51, 0, 0, 0.6);
+    border-radius: 5px;
+    animation: flicker 1.5s infinite alternate; /* Efecto de parpadeo */
+}
+
+@keyframes flicker {
+    0% {
+        box-shadow: 0 0 20px rgba(153, 0, 0, 0.7), 0 0 30px rgba(51, 0, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 0 0 40px rgba(153, 0, 0, 0.6);
+    }
 }
 
 .profile-container img.clicked {
