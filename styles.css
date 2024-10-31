@@ -86,18 +86,19 @@ body {
     width: 100%; /* Ajusta para ocupar todo el contenedor */
     height: auto; /* Permite que mantenga la proporción */
     object-fit: cover;
-    border: 2px solid #007bff;
+    border: 3px solid rgba(153, 0, 0, 0.9); /* Borde rojo oscuro */
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     margin: 0 auto;
     display: block;
     position: relative;
     left: 0; /* Centra la imagen */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 5px; /* Cambia a 0 si prefieres bordes completamente cuadrados */
+    box-shadow: 0 0 15px rgba(102, 0, 0, 0.5), 0 0 30px rgba(51, 0, 0, 0.8); /* Sombra oscura y sangrienta */
+    border-radius: 0; /* Quita el borde redondeado para una apariencia más cruda */
 }
 
 .profile-container img:hover {
-    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(153, 0, 0, 0.9); /* Sombra agresiva roja */
 }
 
 .profile-container img.clicked {
