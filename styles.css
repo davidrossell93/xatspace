@@ -70,21 +70,21 @@ cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" wid
 }
 
 .profile-container img {
-    border-radius: 50%;
-    width: 320px;
-    height: 320px;
-    object-fit: contain;
+    width: 100%; /* Ajusta para ocupar todo el contenedor */
+    height: auto; /* Permite que mantenga la proporción */
+    object-fit: cover;
     border: 2px solid #007bff;
-    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     margin: 0 auto;
     display: block;
     position: relative;
-    left: -10px;
+    left: 0; /* Centra la imagen */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px; /* Cambia a 0 si prefieres bordes completamente cuadrados */
 }
 
 .profile-container img:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
 }
 
 .profile-container img.clicked {
