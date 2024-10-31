@@ -86,22 +86,19 @@ body {
 }
 
 .profile-container img {
-    width: 100%;
+    width: 100%; /* Ajusta para ocupar todo el contenedor */
     height: auto;
     object-fit: cover;
-    border-radius: 5%;
+    border: 3px solid transparent; /* Borde transparente para usar el degradado como borde */
     margin: 0 auto;
     display: block;
     position: relative;
-    box-shadow: -7px 7px 15px rgba(0, 0, 0, 0.7), -10px 10px 20px rgba(100, 0, 0, 0.8);
-    border: 2px solid transparent;
-    padding: 5px;
-    clip-path: polygon(5% 5%, 90% 10%, 95% 90%, 10% 85%); /* Contorno irregular en la imagen */
-}
-/* Agrega parpadeo y vibración a la imagen */
-@keyframes flicker {
-    0%, 100% { opacity: 0.9; transform: rotate(-0.5deg); }
-    50% { opacity: 1; transform: rotate(0.5deg); }
+    left: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(100, 0, 0, 0.8); /* Sombra oscura */
+    border-radius: 5px; /* Borde ligeramente redondeado */
+    background-image: radial-gradient(circle, rgba(153, 0, 0, 0.6), transparent 70%);
+    background-origin: border-box;
+    padding: 10px;
 }
 
 .profile-container img::before {
